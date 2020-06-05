@@ -13,6 +13,8 @@ export const LoginForm = () => {
 
   // To sign up a user.
   const handleSignup = (event) => {
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
     event.preventDefault();
 
     fetch(SIGNUP_URL, {
