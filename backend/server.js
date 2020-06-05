@@ -9,17 +9,7 @@ const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/auth';
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
-/*
-BACK
-+ SQL Injection for mongo
-+ bcrypt and access token
-+ try/catch in the backend
-+ Print error message from catch
-FRONT
-+ Fetch to login
-+ Access Token in the frontend
-+ Github in groups
-*/
+
 
 const User = mongoose.model('User', {
   name: {
@@ -79,12 +69,12 @@ app.post('/users', async (req, res) => {
 });
 
 // Secure endpoint, user needs to be logged in to access this.
-app.get('/users/:id/secret', authenticateUser);
-app.get('/users/:id/secret', (req, res) => {
-  const secretMessage = `This is a super secret message for  ${req.user.name}`;
+app.get('/users/:id/profile', authenticateUser);
+app.get('/users/:id/profile', (req, res) => {
+  const profileMessage = `This is a super secret Profile message for  ${req.user.name}`;
   // Compile information that is access protected
   // And send it back to the client to use for that specific user
-  res.status(201).json({ secretMessage });
+  res.status(201).json({ profileMessage });
 });
 
 // login user

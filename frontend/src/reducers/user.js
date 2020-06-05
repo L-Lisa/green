@@ -4,7 +4,7 @@ const initialState = {
   login: {
     accessToken: null,
     userId: 0,
-    secretMessage: null,
+    profileMessage: null,
     errorMessage: null,
   },
 };
@@ -23,10 +23,10 @@ export const user = createSlice({
       console.log(`User Id: ${userId}`);
       state.login.userId = userId;
     },
-    setSecretMessage: (state, action) => {
-      const { secretMessage } = action.payload;
-      console.log(`Secret Message: ${secretMessage}`);
-      state.login.secretMessage = secretMessage;
+    setProfileMessage: (state, action) => {
+      const { profileMessage } = action.payload;
+      console.log(`Profile Message: ${profileMessage}`);
+      state.login.profileMessage = profileMessage;
     },
     setErrorMessage: (state, action) => {
       const { errorMessage } = action.payload;
@@ -69,13 +69,13 @@ export const login = (name, password) => {
   };
 };
 
-export const getSecretMessage = () => {
+export const getProfileMessage = () => {
   const USERS_URL = 'http://localhost:8080/users';
   return (dispatch, getState) => {
     const accessToken = getState().user.login.accessToken;
     const userId = getState().user.login.userId;
     // Include userId in the path
-    fetch(`${USERS_URL}/${userId}/secret`, {
+    fetch(`${USERS_URL}/${userId}/profile`, {
       method: 'GET',
       // Include the accessToken to get the protected endpoint
       headers: { Authorization: accessToken },
@@ -89,7 +89,7 @@ export const getSecretMessage = () => {
       // SUCCESS: Do something with the information we got back
       .then((json) => {
         dispatch(
-          user.actions.setSecretMessage({ secretMessage: JSON.stringify(json) })
+          user.actions.setProfileMessage({ profileMessage: JSON.stringify(json) })
         );
       })
       .catch((err) => {
@@ -103,7 +103,7 @@ export const getSecretMessage = () => {
 
 export const logout = () => {
   return (dispatch) => {
-    dispatch(user.actions.setSecretMessage({ secretMessage: null }));
+    dispatch(user.actions.setProfileMessage({ profileMessage: null }));
     dispatch(user.actions.setErrorMessage({ errorMessage: null }));
     dispatch(user.actions.setAccessToken({ accessToken: null }));
     dispatch(user.actions.setUserId({ userId: 0 }));
