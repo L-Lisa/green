@@ -13,7 +13,7 @@ export const Profile = () => {
   return (
     <div>
       <h1>Profile</h1>
-      <h2>Status :</h2>
+      // 
       {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
       {profileMessage && <h4>Profile Message : {`${profileMessage}`}</h4>}
       <h4>userId :</h4>
