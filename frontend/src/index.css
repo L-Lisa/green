@@ -15,3 +15,31 @@ code {
 p {
   font-size: 14px;
 }
+
+/* NAV bar */
+.nav-link {
+  text-decoration: none;
+  color: rgb(190, 190, 196);
+}
+
+.nav-link.active {
+  color: rgb(248, 244, 244);
+}
+
+nav {
+  display: inline;
+}
+
+.list-items {
+  list-style: none;
+  display: inline-flex;
+  margin: 2px;
+  border: 1px solid grey;
+  box-shadow: 0.5px 0.5px 2px 0.5px;
+}
+
+.list-items:hover {
+  margin-right: 2px;
+  background-color: grey;
+  color: white;
+}

@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import Profile from './Profile';
 import { useDispatch, useSelector } from 'react-redux';
 import { user, login } from '../reducers/user';
+import styled from 'styled-components';
+import { Form, Button } from "../lib/Form"
+import { Link, NavLink } from "react-router-dom"
+
+
 const SIGNUP_URL = 'http://localhost:8080/users';
 const LOGIN_URL = 'http://localhost:8080/sessions';
 
@@ -52,32 +57,35 @@ export const LoginForm = () => {
     // If user is logged out, show login form
     return (
       <div>
-        <Profile />
-        <form>
-          <h1>sign up</h1>
+        {/*  <Profile /> */}
+        <Form>
+
+          <h1>Sign in or Sign up as new user</h1>
           <label>
-            name
-            <input
+            Name
+                <input
               required
               value={name}
               onChange={(event) => setName(event.target.value)}
             />
-          </label>
+          </label><br />
           <label>
-            password
+            Password
             <input
               required
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-          </label>
-          <button type="submit" onClick={handleSignup}>
+          </label><br />
+          <Button type="submit" onClick={handleSignup}>
             Sign-Up
-          </button>
-          <button type="submit" onClick={handleLogin}>
+          </Button>
+          OR
+          <Button type="submit" onClick={handleLogin}>
             Login
-          </button>
-        </form>
+          </Button>
+
+        </Form>
       </div>
     );
   } else {
