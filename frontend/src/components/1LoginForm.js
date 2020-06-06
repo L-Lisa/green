@@ -14,6 +14,10 @@ const LOGIN_URL = 'http://localhost:8080/sessions';
 
 
 export const LoginForm = () => {
+    const accessToken = useSelector((store) => store.user.login.accessToken);
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [formSubmitType, setFormSubmitType] = useState('');
 
 
     const handleFormSubmit = (event) => {
@@ -22,19 +26,11 @@ export const LoginForm = () => {
 
         if (formSubmitType === 'login') {
             const dispatch = useDispatch();
-            const accessToken = useSelector((store) => store.user.login.accessToken);
-            const [name, setName] = useState('');
-            const [password, setPassword] = useState('');
-            const [formSubmitType, setFormSubmitType] = useState('');
             event.preventDefault();
             dispatch(login(name, password));
 
         } else if (formSubmitType === 'register') {
             const dispatch = useDispatch();
-            const accessToken = useSelector((store) => store.user.login.accessToken);
-            const [name, setName] = useState('');
-            const [password, setPassword] = useState('');
-            const [formSubmitType, setFormSubmitType] = useState('');
             event.preventDefault();
             fetch(SIGNUP_URL, {
                 method: 'POST',

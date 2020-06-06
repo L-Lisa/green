@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { user, logout, getProfileMessage } from '../reducers/user';
 import { useDispatch, useSelector } from 'react-redux';
+import { AddPlant } from "./AddPlant"
+import { PlantList } from "./PlantList"
 
 const URL = 'http://localhost:8080/users';
 export const Profile = () => {
@@ -13,13 +15,16 @@ export const Profile = () => {
   return (
     <div>
       <h1>Profile</h1>
-      // 
+      Here goes your uploaded images
       {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
       {profileMessage && <h4>Profile Message : {`${profileMessage}`}</h4>}
       <h4>userId :</h4>
       <p> {`${userId}`}</p>
       <h4>accessToken :</h4>
       <p> {`${accessToken}`}</p>
+      <AddPlant />
+      <PlantList />
+
       <input
         type="submit"
         onClick={(e) => dispatch(getProfileMessage())}
