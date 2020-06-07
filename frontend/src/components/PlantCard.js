@@ -5,10 +5,14 @@ import moment from 'moment'
 
 
 export const PlantCard = (props) => {
-    const { id, title, description } = props.item
+    const { imageUrl, id, title, description } = props.item
 
     return (
-        <h1> {id}, {title}, { description}</h1>
+        <>
+            <h1> {id}, {title}, {description}</h1>
+            <img className="details-img"
+                src={imageUrl} alt={title} />
+        </>
     )
 }
 

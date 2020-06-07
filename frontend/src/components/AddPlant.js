@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import { user, logout, getProfileMessage } from '../reducers/user';
 import { plant } from "../reducers/plantReducer"
 
+
 const API_PLANTS = 'http://localhost:8080/plants'
+
 export const AddPlant = () => {
     const fileInput = useRef()
     const [title, setTitle] = useState("")
@@ -17,6 +19,7 @@ export const AddPlant = () => {
     const handleFormSubmit = (e) => {
         const API_PLANTS = 'http://localhost:8080/plants'
         e.preventDefault()
+
         dispatch(plant.actions.addPlant({ title, description }))
         /*   setTitle("")
           setDescription("")//clearing input, should I keep this??? */
@@ -55,6 +58,10 @@ export const AddPlant = () => {
             <button type="submit">
                 Add your Plant
         </button>
+
         </form>
     )
+
 }
+
+

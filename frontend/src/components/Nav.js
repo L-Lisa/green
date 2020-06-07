@@ -13,7 +13,7 @@ export const Nav = () => {
                     <NavLink className="nav-link" to="/About">About</NavLink>
                 </li>
                 <li className="list-items">
-                    <NavLink className="nav-link" to="/sessions">LogIn</NavLink>
+                    <NavLink className="nav-link" to="/sessions">LogIn/Register</NavLink>
                 </li>
                 <li className="list-items">
                     <NavLink className="nav-link" to="/Plants">Get greens</NavLink>
@@ -23,7 +23,7 @@ export const Nav = () => {
     )
 }
 
-/* export const NavButton = styled.button`
+export const NavButton = styled.button`
   padding: 3px;
   margin: 6px;
   background: wheat;
@@ -36,4 +36,4 @@ export const Nav = () => {
     background: green;
     color: wheat;
   }
-` */
+` 

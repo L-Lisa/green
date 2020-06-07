@@ -60,7 +60,7 @@ export const LoginForm = () => {
         {/*  <Profile /> */}
         <Form>
 
-          <h1>Sign in or Sign up as new user</h1>
+          <h1>Welcome, sign or register in here. </h1>
           <label>
             Name
                 <input
@@ -72,17 +72,18 @@ export const LoginForm = () => {
           <label>
             Password
             <input
+              type="password"
               required
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
           </label><br />
-          <Button type="submit" onClick={handleSignup}>
-            Sign-Up
-          </Button>
-          OR
           <Button type="submit" onClick={handleLogin}>
             Login
+          </Button>
+          OR
+          <Button type="submit" onClick={handleSignup}>
+            Register a new user
           </Button>
 
         </Form>

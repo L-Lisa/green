@@ -1,28 +1,53 @@
 import styled from 'styled-components'
 
+import img from './images/darkleaves.jpg';
+
 export const Form = styled.form`
+margin-top: 80px;
   width: 300px;
   height: auto;
-  border: 1px solid green;
+  border: 1px solid #004c1f;
+  border-radius: 4px;
+  margin: 0 auto;
   display: flex;
+  padding: 1rem;
   flex-direction: column;
-  align-content: center;
-  justify-content: center;
+  align-content: flex-start;
+  justify-content: flex-start;
   text-align: center;
   align-items: center;
   line-height: 2rem;
-  
-   &:focus{
-     color: yellow;
+   
+   }
+   h1{
+    background-image: url(${img});
+    font-family: Merriweather;
+    background-size: cover;
+    color: whitesmoke;
+    background-position:50% 50%;
+    padding: 20px;
+    margin:-1rem -1rem 0 -1rem;
+   }
+   label{
+     margin-top: 10px;
+     align-self: flex-start;
+   }
+   input{
+    height: 1.2rem;
+    width: 200px;
+    margin: 0 50px;
+
+      &:focus{
+     border: yellow;
    }
 `
 
 export const Button = styled.button`
 width: 150px;
-background-color: green;
-color: wheat;
+background-color: #004c1f;
+color: white;
 &:hover {
     background: wheat;
-    color: green;
+    color: #004c1f;
   }
 `
