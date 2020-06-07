@@ -4,12 +4,34 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 import bcrypt from 'bcrypt-nodejs';
+import dotenv from 'dotenv'
+import cloudinaryFramework from 'cloudinary'
+import multer from 'multer'
+import cloudinaryStorage from 'multer-storage-cloudinary'
 
-const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/auth';
+dotenv.config()
+
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/auth'// ??
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
+// Image uploading set up
+const cloudinary = cloudinaryFramework.v2;
+cloudinary.config({
+  cloud_name: 'dnjk2bwkp',
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+})
 
+const storage = cloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'plants',
+    allowedFormats: ['jpg', 'png'],
+    transformation: [{ width: 500, height: 500, crop: 'limit' }],
+  },
+})
+const parser = multer({ storage })
 
 const User = mongoose.model('User', {
   name: {
@@ -25,6 +47,11 @@ const User = mongoose.model('User', {
     default: () => crypto.randomBytes(128).toString('hex'),
   },
 });
+
+const Plant = mongoose.model('Plant', {
+  name: String,
+  imageUrl: String
+})
 
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
@@ -71,11 +98,11 @@ app.post('/users', async (req, res) => {
 // Secure endpoint, user needs to be logged in to access this.
 app.get('/users/:id/profile', authenticateUser);
 app.get('/users/:id/profile', (req, res) => {
-  const profileMessage = `This is a super secret Profile message for  ${req.user.name}`;
+  const profileMessage = `This is a super secret Profile message for ${req.user.name}`;
   // Compile information that is access protected
   // And send it back to the client to use for that specific user
   res.status(201).json({ profileMessage });
-});
+})
 
 // login user
 app.post('/sessions', async (req, res) => {
@@ -91,6 +118,27 @@ app.post('/sessions', async (req, res) => {
     res.status(404).json({ notFound: true });
   }
 });
+
+// post to cloudinary, WHY 2 post??
+
+
+app.post('/plants', parser.single('image'), async (req, res) => {
+  res.json({ imageUrl: req.file.path, imageId: req.file.filename })
+})
+app.post('/plants', parser.single('image'), async (req, res) => {
+  try {
+    const plant = await new Plant({ name: req.body.filename, imageUrl: req.file.path, imageId: req.file.filename }).save()
+    res.json(plant)
+  } catch (err) {
+    res.status(400).json({ errors: err.errors })
+  }
+})
+
+app.get("/plants", async (req, res) => {
+  const plants = await Plant.find()
+  res.json(plants)
+})
+
 
 // Start the server
 app.listen(port, () => {

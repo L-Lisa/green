@@ -13,7 +13,7 @@ export const plant = createSlice({
             state.plants.push({
                 id: Date.now(),
                 title,
-                description
+                description,
             })
         },
         removePlant: (state, action) => {
