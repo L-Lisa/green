@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddPlant } from "./AddPlant"
 import { PlantList } from "./PlantList"
 
-const URL = 'http://localhost:8080/users';
+const URL = 'https://home-grown-green.herokuapp.com/users';
 export const Profile = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.login.accessToken);
