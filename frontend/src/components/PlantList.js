@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { PlantCard } from "./PlantCard"
-const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
+const API_PLANTS = 'http://localhost:8080/plants'
 
 export const PlantList = () => {
     const plants = useSelector((state) => state.plant.plants)// Cloudinary??!?!

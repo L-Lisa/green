@@ -11,7 +11,7 @@ import cloudinaryStorage from 'multer-storage-cloudinary'
 
 dotenv.config()
 
-const mongoUrl = process.env.MONGO_URL || 'https://home-grown-green.herokuapp.com'// ??
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/auth'// ??
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 

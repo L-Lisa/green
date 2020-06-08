@@ -7,8 +7,8 @@ import { Form, Button } from "../lib/Form"
 import { Link, NavLink } from "react-router-dom"
 
 
-const SIGNUP_URL = 'https://home-grown-green.herokuapp.com/users';
-const LOGIN_URL = 'https://home-grown-green.herokuapp.com/sessions';
+const SIGNUP_URL = 'http://localhost:8080/users';
+const LOGIN_URL = 'http://localhost:8080/sessions';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import { user } from "./reducers/user";
 import { Home } from "components/Home";
 import { plant } from "reducers/plantReducer";
 
-const URL = "https://home-grown-green.herokuapp.com//users";
+const URL = "http://localhost:8080/users";
 
 const reducer = combineReducers({
   user: user.reducer,
