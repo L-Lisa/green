@@ -1,10 +1,10 @@
 // New login, return does not renter??? https://gist.github.com/puj/03425c7767e05c05475f1b02ce9bae78
 import React, { useState } from 'react';
-import Profile from '../../pages/Profile';
+import Profile from './Profile';
 import { useDispatch, useSelector } from 'react-redux';
-import { user, login } from '../../reducers/user';
+import { user, login } from '../reducers/user';
 import styled from 'styled-components';
-import { Form, Button } from "../../lib/Form"
+import { Form, Button } from "../lib/Form"
 import { Link, NavLink } from "react-router-dom"
 
 

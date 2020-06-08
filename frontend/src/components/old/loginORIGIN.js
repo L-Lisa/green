@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Profile from '../../pages/Profile';
+import Profile from './Profile';
 import { useDispatch, useSelector } from 'react-redux';
-import { user, login } from '../../reducers/user';
+import { user, login } from '../reducers/user';
 import styled from 'styled-components';
-import { Form, Button } from "../../lib/Form"
+import { Form, Button } from "../lib/Form"
 import { Link, NavLink } from "react-router-dom"
 
 

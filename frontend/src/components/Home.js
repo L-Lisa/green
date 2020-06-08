@@ -2,10 +2,10 @@ import React from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import { Nav } from "./Nav"
 import { LoginForm } from "./LoginForm"
-import { Profile } from "./Profile"
-import { HomePage } from "./HomePage"
-import { About } from "./About"
-import { Plants } from "./Plants"
+import { Profile } from "../pages/Profile"
+import { HomePage } from "../pages/HomePage"
+import { About } from "../pages/About"
+import { Plants } from "../pages/Plants"
 
 export const Home = () => {
     return (

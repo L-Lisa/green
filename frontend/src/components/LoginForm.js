@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Profile from './Profile';
+import Profile from '../pages/Profile';
 import { useDispatch, useSelector } from 'react-redux';
 import { user, login } from '../reducers/user';
 import styled from 'styled-components';
