@@ -1,16 +1,15 @@
 import React from "react"
 import styled from 'styled-components';
-import img from '../lib/images/greenhouse.jpg';
+import img from '..//lib/images/greenhouse.jpg';
 
 
 export const HomePage = () => {
     return (
         <Hero>
-            <h1>is the home page, with NAV links, hero image, PlantsCard grid with plants for sale and footer</h1>
+            <h1>is the home page, with NAV links, hero image, PlantsCard grid with plants for sale and footer, CTA: sell your produce here!</h1>
         </Hero >
     )
 }
-
 
 
 const Hero = styled.section`
