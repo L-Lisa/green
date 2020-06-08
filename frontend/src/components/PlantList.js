@@ -1,21 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { PlantCard } from "./PlantCard"
+import { plant } from "reducers/plantReducer"
 const API_PLANTS = 'http://localhost:8080/plants'
 
+
 export const PlantList = () => {
-    const plants = useSelector((state) => state.plant.plants)// Cloudinary??!?!
-    // dispatch?
-    /* 
-        fetch(API_PLANTS, { method: 'GET', body: formData })
-            .then((res) => res.json())
-            .then((json) => {
-                console.log(json)
-            }) */
+    const allPlants = useSelector((store) => (store.plant.plants))
+
     return (
         <ul>
-            {plants.map((item) => (
-                <PlantCard key={item.id} item={item} />
+            {allPlants.map((plant) => (
+                <PlantCard key={plant.id} plant={plant} />
             ))}
         </ul>
     )
