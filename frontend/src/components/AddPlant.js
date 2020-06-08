@@ -20,7 +20,7 @@ export const AddPlant = () => {
         const API_PLANTS = 'http://localhost:8080/plants'
         e.preventDefault()
 
-
+        dispatch(plant.actions.addPlant({ title, description }))
         /*   setTitle("")
           setDescription("")//clearing input, should I keep this??? */
         const formData = new FormData()
@@ -31,7 +31,6 @@ export const AddPlant = () => {
             .then((res) => res.json())
             .then((json) => {
                 console.log(json)
-                dispatch(plant.actions.addPlant({ title, description, imageUrl: json.imageUrl }))
             })
     }
     return (
@@ -59,10 +58,8 @@ export const AddPlant = () => {
             <button type="submit">
                 Add your Plant
         </button>
-
         </form>
     )
-
 }
 
 

@@ -16,7 +16,7 @@ export const Nav = () => {
                     <NavLink className="nav-link" to="/sessions">LogIn/Register</NavLink>
                 </li>
                 <li className="list-items">
-                    <NavLink className="nav-link" to="/Plants">Get greens</NavLink>
+                    <NavLink className="nav-link" to="/Plants">Plants for sale</NavLink>
                 </li>
             </ul>
         </nav>
