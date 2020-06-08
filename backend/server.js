@@ -119,12 +119,7 @@ app.post('/sessions', async (req, res) => {
   }
 });
 
-// post to cloudinary, WHY 2 post??
-
-
-app.post('/plants', parser.single('image'), async (req, res) => {
-  res.json({ imageUrl: req.file.path, imageId: req.file.filename })
-})
+// post to cloudinary
 app.post('/plants', parser.single('image'), async (req, res) => {
   try {
     const plant = await new Plant({ name: req.body.filename, imageUrl: req.file.path, imageId: req.file.filename }).save()
