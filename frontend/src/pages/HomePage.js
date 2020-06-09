@@ -1,13 +1,28 @@
 import React from "react"
-import styled from 'styled-components';
-import img from '..//lib/images/greenhouse.jpg';
+import { useSelector } from 'react-redux'
+import img from '..//lib/images/greenhouse.jpg'
+import { PlantCard } from "../components/PlantCard"
+import { plant } from "reducers/plantReducer"
+import styled from 'styled-components'
 
 
 export const HomePage = () => {
+    const allPlants = useSelector((store) => (store.plant.plants))
     return (
-        <Hero>
-            <h1>is the home page, with NAV links, hero image, PlantsCard grid with plants for sale and footer, CTA: sell your produce here!</h1>
-        </Hero >
+        <>
+            <Hero>
+                <h1>is the home page, with NAV links, hero image, PlantsCard grid with plants for sale and footer, CTA: sell your produce here!</h1>
+            </Hero >
+            <section>
+
+                <ul>
+                    {allPlants.map((plant) => (
+                        <PlantCard key={plant.id} plant={plant} />
+                    ))}
+                </ul>
+
+            </section>
+        </>
     )
 }
 

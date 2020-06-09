@@ -6,6 +6,7 @@ import { Profile } from "../pages/Profile"
 import { HomePage } from "../pages/HomePage"
 import { About } from "../pages/About"
 import { Plants } from "../pages/Plants"
+import { Footer } from "./Footer"
 
 export const Home = () => {
     return (
@@ -36,6 +37,7 @@ export const Home = () => {
 
                 </Switch>
             </main>
+            <Footer />
         </BrowserRouter>
 
     )

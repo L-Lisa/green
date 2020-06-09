@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   login: {
     accessToken: null,
-    userId: 0,
+    userId: 0,  // change to null???
     profileMessage: null,
     errorMessage: null,
   },
@@ -37,12 +37,12 @@ export const user = createSlice({
 });
 
 // Thunks
-export const login = (name, password) => {
+export const login = (name, email, password) => {
   const LOGIN_URL = 'http://localhost:8080/sessions';
   return (dispatch) => {
     fetch(LOGIN_URL, {
       method: 'POST',
-      body: JSON.stringify({ name, password }),
+      body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => {

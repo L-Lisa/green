@@ -42,6 +42,10 @@ const User = mongoose.model('User', {
     type: String,
     required: true,
   },
+  email: {
+    type: String, /// Type Password????
+    /*  required: true, */
+  },
   accessToken: {
     type: String,
     default: () => crypto.randomBytes(128).toString('hex'),
@@ -51,7 +55,7 @@ const User = mongoose.model('User', {
 const Plant = mongoose.model('Plant', {
   name: String,
   imageUrl: String
-})
+}) /// add DEScription!!!
 
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
@@ -85,8 +89,8 @@ const authenticateUser = async (req, res, next) => {
 // Create user  - sign up
 app.post('/users', async (req, res) => {
   try {
-    const { name, password } = req.body;
-    const user = new User({ name, password: bcrypt.hashSync(password) });
+    const { email, name, password } = req.body;
+    const user = new User({ email, name, password: bcrypt.hashSync(password) });
     const saved = await user.save();
     // Not the entire user (we don't want to send password in the response)
     res.status(201).json({ userId: saved._id, accessToken: saved.accessToken });
@@ -98,7 +102,7 @@ app.post('/users', async (req, res) => {
 // Secure endpoint, user needs to be logged in to access this.
 app.get('/users/:id/profile', authenticateUser);
 app.get('/users/:id/profile', (req, res) => {
-  const profileMessage = `This is a super secret Profile message for ${req.user.name}`;
+  const profileMessage = `Welcome to your home grown page ${req.user.name}`;
   // Compile information that is access protected
   // And send it back to the client to use for that specific user
   res.status(201).json({ profileMessage });
@@ -107,7 +111,7 @@ app.get('/users/:id/profile', (req, res) => {
 // login user
 app.post('/sessions', async (req, res) => {
   try {
-    const { name, password } = req.body;
+    const { email, name, password } = req.body;
     const user = await User.findOne({ name });
     if (user && bcrypt.compareSync(password, user.password)) {
       res.status(201).json({ userId: user._id, accessToken: user.accessToken });
@@ -118,8 +122,6 @@ app.post('/sessions', async (req, res) => {
     res.status(404).json({ notFound: true });
   }
 });
-
-
 
 app.post('/plants', parser.single('image'), async (req, res) => {
   try {
@@ -133,7 +135,7 @@ app.post('/plants', parser.single('image'), async (req, res) => {
 app.get("/plants", async (req, res) => {
   const plants = await Plant.find()
   res.json(plants)
-})
+}) // improve this one!!!
 
 
 // Start the server
