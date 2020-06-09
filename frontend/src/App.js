@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import LoginForm from "./components/LoginForm";
 import { Provider } from "react-redux";
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore, combineReducers, createStore } from "@reduxjs/toolkit";
+import thunk from 'redux-thunk'
+import { compose, applyMiddleware } from "redux";
+/* import { persistedState } from 'redux-localstorage' */
 import { user } from "./reducers/user";
 import { Home } from "components/Home";
 import { plant } from "reducers/plantReducer";
-import thunk from 'redux-thunk'
-import { compose, createStore, applyMiddleware } from "redux";
-import persistState from 'redux-localstorage'
 
 const URL = "http://localhost:8080/users";
 
@@ -16,7 +16,32 @@ const reducer = combineReducers({
   user: user.reducer,
   plant: plant.reducer
 })
-const store = configureStore({ reducer });
+
+// 1. Retrieve the localstorage and use it as our initial state
+const persistedStateJSON = localStorage.getItem("green");
+let persistedState = {};
+
+if (persistedStateJSON) {
+  persistedState = JSON.parse(persistedStateJSON)
+}
+
+// 2. Create the store using the initial state
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, persistedState, composeEnhancer(applyMiddleware(thunk)))
+
+
+
+store.subscribe(() => {
+  localStorage.setItem("green", JSON.stringify(store.getState()))
+})
+
+export const App = () => {
+  return (
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  );
+}
 
 /* // 1. Retrieve the localstorage and use it as our initial state
 const persistedStateJSON = localStorage.getItem("green")
@@ -39,11 +64,4 @@ store.subscribe(() => {
   localStorage.setItem("green", JSON.stringify(store.getState()))
 }) */
 
-export const App = () => {
 
-  return (
-    <Provider store={store}>
-      <Home />
-    </Provider>
-  );
-};
