@@ -4,17 +4,18 @@ export const plant = createSlice({
     name: 'plant',
     initialState: {
         plants: [
-
         ],
     },
     reducers: {
         addPlant: (state, action) => {
+
             const { title, description, imageUrl } = action.payload
             state.plants.push({
                 id: Date.now(),
                 title,
                 description,
-                imageUrl
+                imageUrl,
+                owner
             })
         },
         removePlant: (state, action) => {

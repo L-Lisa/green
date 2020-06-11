@@ -25,8 +25,8 @@ export const LoginForm = () => {
 
     fetch(SIGNUP_URL, {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
-      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password }),/// att do formdata
+      headers: { 'Content-Type': 'application/json' },/// att do formdata
     })
       .then((res) => {
         if (!res.ok) {

@@ -43,7 +43,7 @@ const User = mongoose.model('User', {
     required: true,
   },
   email: {
-    type: String, /// Type Password????
+    type: String,
     /*  required: true, */
   },
   accessToken: {
@@ -53,9 +53,17 @@ const User = mongoose.model('User', {
 });
 
 const Plant = mongoose.model('Plant', {
-  name: String,
-  imageUrl: String
-}) /// add DEScription!!!
+  title: String,
+  imageUrl: String,
+  description: String,
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  }
+})
+/*   */
+
+
 
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080;
@@ -86,6 +94,11 @@ const authenticateUser = async (req, res, next) => {
   }
 };
 
+// Start routes here
+app.get('/', (req, res) => {
+  res.send('Hello Happy World')
+})
+
 // Create user  - sign up
 app.post('/users', async (req, res) => {
   try {
@@ -93,7 +106,7 @@ app.post('/users', async (req, res) => {
     const user = new User({ email, name, password: bcrypt.hashSync(password) });
     const saved = await user.save();
     // Not the entire user (we don't want to send password in the response)
-    res.status(201).json({ userId: saved._id, accessToken: saved.accessToken });
+    res.status(201).json({ name: saved.name, userId: saved._id, accessToken: saved.accessToken });
   } catch (err) {
     res.status(400).json({ message: 'Could not create user', errors: err });
   }
@@ -105,8 +118,10 @@ app.get('/users/:id/profile', (req, res) => {
   const profileMessage = `Welcome to your home grown page ${req.user.name}`;
   // Compile information that is access protected
   // And send it back to the client to use for that specific user
+  //  const user = await User.findOne({ user._id});
   res.status(201).json({ profileMessage });
 })
+
 
 // login user
 app.post('/sessions', async (req, res) => {
@@ -114,7 +129,7 @@ app.post('/sessions', async (req, res) => {
     const { email, name, password } = req.body;
     const user = await User.findOne({ name });
     if (user && bcrypt.compareSync(password, user.password)) {
-      res.status(201).json({ userId: user._id, accessToken: user.accessToken });
+      res.status(201).json({ userId: user._id, accessToken: user.accessToken });//result att skicka till frontend
     } else {
       res.status(404).json({ notFound: true });
     }
@@ -136,6 +151,13 @@ app.get("/plants", async (req, res) => {
   const plants = await Plant.find()
   res.json(plants)
 }) // improve this one!!!
+
+app.get("/user/:id/plants", async (req, res) => {
+  const plants = await Plant.find() // 
+  res.json(plants)
+})
+
+
 
 
 // Start the server

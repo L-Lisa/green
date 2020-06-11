@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { PlantCard } from "./PlantCard"
 import { plant } from "reducers/plantReducer"
+
 const API_PLANTS = 'http://localhost:8080/plants'
 
 

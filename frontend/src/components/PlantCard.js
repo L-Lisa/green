@@ -9,7 +9,7 @@ export const PlantCard = (props) => {
 
     return (
         <>
-            <h1> {id}, {title}, {description}</h1>
+            <h1> {id}, {title}, {description} {owner}</h1>
             <h2>THIS IS THE PLANT CARD</h2>
             <img className="details-img"
                 src={imageUrl} alt={title} />

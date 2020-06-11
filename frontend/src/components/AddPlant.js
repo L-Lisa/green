@@ -10,6 +10,7 @@ export const AddPlant = () => {
     const fileInput = useRef()
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+    const [email, setEmail] = useState("")
     const dispatch = useDispatch()
 
     /*  const handleSubmit = (event) => {
@@ -17,21 +18,23 @@ export const AddPlant = () => {
  
      } */
     const handleFormSubmit = (e) => {
+        //set state, loading true 
         const API_PLANTS = 'http://localhost:8080/plants'
         e.preventDefault()
-
-
-        /*   setTitle("")
-          setDescription("")//clearing input, should I keep this??? */
         const formData = new FormData()
-        formData.append('image', fileInput.current.files[0])
+        formData.append('image', fileInput.current.files[0]) // send all to backend
         formData.append('title', title)
-
+        formData.append('description', description)
+        formData.append('email', email)
         fetch(API_PLANTS, { method: 'POST', body: formData })
             .then((res) => res.json())
             .then((json) => {
                 console.log(json)
-                dispatch(plant.actions.addPlant({ title, description, imageUrl: json.imageUrl }))
+                /* dispatch(plant.actions.addPlant({ title, description, imageUrl: json.imageUrl, owner: user.login.userId })) */
+            })
+            .then(() => {
+                setTitle("")
+                setDescription("")
             })
     }
     return (
@@ -49,6 +52,14 @@ export const AddPlant = () => {
             <input
                     type="text-area"
                     value={description}
+                    onChange={(event) => setDescription(event.target.value)}
+                />
+            </label>
+            <label>
+                Description
+            <input
+                    type="email"
+                    value={email}
                     onChange={(event) => setDescription(event.target.value)}
                 />
             </label>
