@@ -60,41 +60,37 @@ const Button = styled.button`
 
 export const Card = ({
 
-    secondaryText,
-    thumbnailurl,
-    coverImage,
-    children,
-    className,
-    supportingText,
-    buttonText,
-    imageUrl,
-    id,
-    title,
-    description,
-    email,
-    owner
+  secondaryText,
+  thumbnailurl,
+  coverImage,
+  children,
+  className,
+  supportingText,
+  buttonText,
+  imageUrl,
+  id,
+  title,
+  description,
+  email,
+  owner
 }) => {
-    return (
-        <Container className={className}>
-            <TitleBar>
-                {thumbnailurl && <Thumbnail url={thumbnailurl} />}
-                <div>
-                    {title && <Title>{title}</Title>}
-                    {secondaryText && <SecondaryText>{secondaryText}</SecondaryText>}
-                </div>
-            </TitleBar>
+  return (
+    <Container className={className}>
+      <TitleBar>
+        {thumbnailurl && <Thumbnail url={thumbnailurl} />}
+        <div>
+          {title && <Title>{title}</Title>}
+          {secondaryText && <SecondaryText>{secondaryText}</SecondaryText>}
+        </div>
+      </TitleBar>
 
-            {coverImage && <CoverImage src={coverImage} />}
+      {coverImage && <CoverImage src={coverImage} />}
 
-            {supportingText && (
-                <SupportingTextBox>{supportingText}</SupportingTextBox>
-            )}
+      {supportingText && (
+        <SupportingTextBox>{supportingText}</SupportingTextBox>
+      )}
 
-            {buttonText && <Button>{buttonText}</Button>}
-
-            <Content>
-                {children && <ChildrenContent>{children}</ChildrenContent>}
-            </Content>
-        </Container>
-    );
+      {buttonText && <Button>{buttonText}</Button>}
+    </Container>
+  );
 };
