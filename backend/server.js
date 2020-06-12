@@ -1,9 +1,9 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import crypto from 'crypto';
-import bcrypt from 'bcrypt-nodejs';
+import express from 'express'
+import bodyParser from 'body-parser'
+import cors from 'cors'
+import mongoose from 'mongoose'
+import crypto from 'crypto'
+import bcrypt from 'bcrypt-nodejs'
 import dotenv from 'dotenv'
 import cloudinaryFramework from 'cloudinary'
 import multer from 'multer'
@@ -11,7 +11,7 @@ import cloudinaryStorage from 'multer-storage-cloudinary'
 
 dotenv.config()
 
-const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/auth'// ??
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost'// ??
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
@@ -53,9 +53,25 @@ const User = mongoose.model('User', {
 });
 
 const Plant = mongoose.model('Plant', {
-  title: String,
-  imageUrl: String,
-  description: String,
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  imageUrl: {
+    type: String,
+    required: true
+  },
+  imageId: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -85,14 +101,14 @@ const authenticateUser = async (req, res, next) => {
     } else {
       res
         .status(401)
-        .json({ loggedOut: true, message: 'Please try logging in again' });
+        .json({ loggedOut: true, message: 'Please try logging in again' })
     }
   } catch (err) {
     res
       .status(403)
       .json({ message: 'Access token is missing or wrong', errors: err });
   }
-};
+}
 
 // Start routes here
 app.get('/', (req, res) => {
@@ -110,7 +126,7 @@ app.post('/users', async (req, res) => {
   } catch (err) {
     res.status(400).json({ message: 'Could not create user', errors: err });
   }
-});
+})
 
 // Secure endpoint, user needs to be logged in to access this.
 app.get('/users/:id/profile', authenticateUser);
@@ -121,7 +137,6 @@ app.get('/users/:id/profile', (req, res) => {
   //  const user = await User.findOne({ user._id});
   res.status(201).json({ profileMessage });
 })
-
 
 // login user
 app.post('/sessions', async (req, res) => {
@@ -136,29 +151,33 @@ app.post('/sessions', async (req, res) => {
   } catch (err) {
     res.status(404).json({ notFound: true });
   }
-});
+})
 
+// post new plant, upload image
 app.post('/plants', parser.single('image'), async (req, res) => {
   try {
-    const plant = await new Plant({ name: req.body.filename, imageUrl: req.file.path, imageId: req.file.filename }).save()
+    const plant = await new Plant({
+      title: req.body.title,
+      description: req.body.description,
+      email: req.body.email,
+      imageUrl: req.file.path,
+      imageId: req.file.filename
+    }).save()
     res.json(plant)
   } catch (err) {
     res.status(400).json({ errors: err.errors })
   }
 })
-
+// get all the plants
 app.get("/plants", async (req, res) => {
   const plants = await Plant.find()
   res.json(plants)
-}) // improve this one!!!
+})
 
 app.get("/user/:id/plants", async (req, res) => {
   const plants = await Plant.find() // 
   res.json(plants)
 })
-
-
-
 
 // Start the server
 app.listen(port, () => {

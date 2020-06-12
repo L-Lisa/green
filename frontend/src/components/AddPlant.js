@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { useDispatch } from 'react-redux';
 import { user, logout, getProfileMessage } from '../reducers/user';
 import { plant } from "../reducers/plantReducer"
-
+import { Form, Button } from "../lib/Form"
 
 const API_PLANTS = 'http://localhost:8080/plants'
 
@@ -26,19 +26,21 @@ export const AddPlant = () => {
         formData.append('title', title)
         formData.append('description', description)
         formData.append('email', email)
+
         fetch(API_PLANTS, { method: 'POST', body: formData })
             .then((res) => res.json())
             .then((json) => {
                 console.log(json)
-                /* dispatch(plant.actions.addPlant({ title, description, imageUrl: json.imageUrl, owner: user.login.userId })) */
+                dispatch(plant.actions.addPlant({ email, title, description, imageUrl: json.imageUrl, /* owner: user.login.userId  */ }))
             })
             .then(() => {
                 setTitle("")
                 setDescription("")
+                setEmail("")
             })
     }
     return (
-        <form onSubmit={handleFormSubmit}>
+        <Form onSubmit={handleFormSubmit}>
             <label>
                 Title:
             <input
@@ -56,11 +58,11 @@ export const AddPlant = () => {
                 />
             </label>
             <label>
-                Description
+                Email
             <input
                     type="email"
                     value={email}
-                    onChange={(event) => setDescription(event.target.value)}
+                    onChange={(event) => setEmail(event.target.value)}
                 />
             </label>
             <label>
@@ -70,7 +72,7 @@ export const AddPlant = () => {
             <button type="submit">
                 Add your Plant
         </button>
-        </form>
+        </Form>
     )
 }
 

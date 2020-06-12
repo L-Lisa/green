@@ -9,11 +9,12 @@ export const plant = createSlice({
     reducers: {
         addPlant: (state, action) => {
 
-            const { title, description, imageUrl } = action.payload
+            const { title, description, imageUrl, email, owner } = action.payload
             state.plants.push({
                 id: Date.now(),
                 title,
                 description,
+                email,
                 imageUrl,
                 owner
             })
