@@ -72,9 +72,6 @@ const Plant = mongoose.model('Plant', {
   email: {
     type: String,
   },
-  _id: {
-    type: String,
-  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -173,12 +170,11 @@ app.post('/plants', parser.single('image'), async (req, res) => {
 })
 // get all the plants
 app.get("/plants", async (req, res) => {
-  const plants = await Plant.find()
+  const plants = await Plant.find()/* .limit(20) */
   res.json(plants)
-
 })
-// get one plant
-app.get("/plants/:_id/", async (req, res) => {
+
+app.get("/user/:id/plants", async (req, res) => {
   const plants = await Plant.find()
   res.json(plants)
 })
@@ -187,3 +183,19 @@ app.get("/plants/:_id/", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+/* // get one plant
+app.get("/plants/:_id/", async (req, res) => {
+  try {
+    const { _id } = req.params
+    console.log(`GET /plants by _id ${_id}`)
+    const plants = await Plant.findOne({ _id })
+    if (plant) {
+      res.status(200).json(plant)
+    } else {
+      res.status(404).json({ error: `Cant find plant with id:${_id} did you miss a nr?` })
+    }
+  } catch (err) {
+    res.status(400).json({ error: `try aanother plant` })
+  }
+}) */

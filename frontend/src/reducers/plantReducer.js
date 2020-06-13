@@ -20,10 +20,7 @@ export const plant = createSlice({
             })
         },
         removePlant: (state, action) => {
-            state.plants = state.plants.filter((plant) => plant.id !== action.payload)
-        },
-        removeItem: (state, action) => {
-            state.plant = state.plant.filter((plant) => item.id !== action.payload)
+            state.plants = state.plants.filter((plant) => plant._id !== action.payload)
         },
     },
 })

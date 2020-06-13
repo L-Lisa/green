@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddPlant } from "../components/AddPlant"
 import { PlantList } from "../components/PlantList"
 
+
 const URL = 'http://localhost:8080/users';
 export const Profile = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export const Profile = () => {
       <p> {`${accessToken}`}</p>
       <AddPlant />
       <PlantList />
+
 
       <input
         type="submit"

@@ -1,9 +1,10 @@
 import React from "react"
 import { useSelector } from 'react-redux'
-import img from '..//lib/images/greenhouse.jpg'
+import img from '..//lib/images/saplings.jpg'
 import { PlantCard } from "../components/PlantCard"
 import { plant } from "reducers/plantReducer"
 import styled from 'styled-components'
+import { PlantList } from "components/PlantList"
 
 
 export const HomePage = () => {
@@ -11,21 +12,18 @@ export const HomePage = () => {
     return (
         <>
             <Hero>
-                <h1>is the home page, with NAV links, hero image, PlantsCard grid with plants for sale and footer, CTA: sell your produce here!</h1>
+                <h1>Home grown plants - sell and buy them here!</h1>
             </Hero >
             <section>
-
                 <ul>
                     {allPlants.map((plant) => (
-                        <PlantCard key={plant.id} plant={plant} />
+                        <PlantList key={plant.id} plant={plant} />
                     ))}
                 </ul>
-
             </section>
         </>
     )
 }
-
 
 const Hero = styled.section`
     background-image: url(${img});
@@ -40,9 +38,15 @@ const Hero = styled.section`
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     h1{
-        text-align: center;
-        text-justify: center;
-        color: black;
+    width: max-content;
+    color: black;
+    background-color: #fff;
+    background-color: rgba(67,111,81,0.12);
+    border-radius: 5px;
+    background-color: rgba(217, 247, 219, 0.2);
     }
    `

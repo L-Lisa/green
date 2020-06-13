@@ -18,7 +18,6 @@ align-self: center;
 flex-wrap: wrap;
 padding-inline-start: 0;
 justify-content: center;
-
 }
 `
 
@@ -29,7 +28,6 @@ export const PlantList = () => {
         return <>Paitence, still loading.. </>
     }
     return (
-
         <ListSection>
             <ul>
                 {allPlants.map((plant) => (

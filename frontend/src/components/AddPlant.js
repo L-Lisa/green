@@ -4,6 +4,7 @@ import { user, logout, getProfileMessage } from '../reducers/user';
 import { plant } from "../reducers/plantReducer"
 import { Form, Button } from "../lib/Form"
 
+
 const API_PLANTS = 'http://localhost:8080/plants'
 
 export const AddPlant = () => {
@@ -40,39 +41,43 @@ export const AddPlant = () => {
             })
     }
     return (
-        <Form onSubmit={handleFormSubmit}>
-            <label>
-                Title:
+        <>
+            <Form onSubmit={handleFormSubmit}>
+                <label>
+                    Title:
             <input
-                    type="text"
-                    value={title}
-                    onChange={(event) => setTitle(event.target.value)}
-                />
-            </label>
-            <label>
-                Description
+                        type="text"
+                        value={title}
+                        onChange={(event) => setTitle(event.target.value)}
+                    />
+                </label>
+                <label>
+                    Description
             <input
-                    type="text-area"
-                    value={description}
-                    onChange={(event) => setDescription(event.target.value)}
-                />
-            </label>
-            <label>
-                Email
+                        type="text-area"
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
+                    />
+                </label>
+                <label>
+                    Email
             <input
-                    type="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                />
-            </label>
-            <label>
-                Image of your Green
+                        type="email"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                    />
+                </label>
+                <label>
+                    Image of your Green
         <input type="file" ref={fileInput} />
-            </label>
-            <button type="submit">
-                Add your Plant
+                </label>
+                <button type="submit">
+                    Add your Plant
         </button>
-        </Form>
+
+            </Form>
+
+        </>
     )
 }
 

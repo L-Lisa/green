@@ -2,6 +2,7 @@ import React from "react"
 import { useSelector } from 'react-redux'
 import { PlantCard } from "../components/PlantCard"
 import { plant } from "reducers/plantReducer"
+import { PlantList } from "components/PlantList"
 
 export const Plants = () => {
     const allPlants = useSelector((store) => (store.plant.plants))
@@ -12,10 +13,10 @@ export const Plants = () => {
 
                 <ul>
                     {allPlants.map((plant) => (
-                        <PlantCard key={plant.id} plant={plant} />
+                        <PlantList key={plant.id} plant={plant} />
                     ))}
                 </ul>
-)}
+)
 </section>
         </div>
     )

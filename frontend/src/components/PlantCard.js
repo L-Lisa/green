@@ -23,31 +23,35 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { plant } from "reducers/plantReducer"
 import moment from 'moment'
+import { Link } from "react-router-dom"
 
 
 const PlantCardInput = styled(Card)`
   width: 300px;
+  height: 400px
 `;
 
-const Link = styled.li`
+const ListItem = styled.li`
 list-style: none;
 cursor: pointer;
 text-decoration:none;
 margin: 5px;
+text-decoration: none;
 `;
 
 export const PlantCard = (props) => {
     const { imageUrl, _id, id, title, description, email, owner } = props.plant
-    console.log(email)
     return (
-
-        <Link to={`/plants/${_id}`} className="a-tag">
+        <ListItem>
+            {/*  <Link to={`/plants/${_id}`}> */}
             <PlantCardInput
+                _id={_id}
                 coverImage={imageUrl}
                 title={title}
                 secondaryText={description}
                 buttonText={`I want one ${email}`}
             />
-        </Link>
+            {/*  </Link> */}
+        </ListItem>
     );
 }

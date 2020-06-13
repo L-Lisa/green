@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Link } from 'react-router-dom'
+
 /* import PropTypes from 'prop-types'; */
 
 const Container = styled.div`
+border: solid 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   margin-bottom: 2px;
   border-radius: 3px;
   background: white;
+  margin: 2px;
 `;
 
 const Title = styled.h1`
@@ -80,22 +82,23 @@ export const Card = ({
   owner
 }) => {
   return (
-    <Link to={`/plants/${_id}`} className="a-tag">
-      <Container className={className}>
-        <TitleBar>
-          {thumbnailurl && <Thumbnail url={thumbnailurl} />}
-          <div>
-            {title && <Title>{title}</Title>}
-            {buttonText && <Button>{buttonText}</Button>}
-          </div>
-        </TitleBar>
 
-        {coverImage && <CoverImage src={coverImage} />}
-        {secondaryText && <SecondaryText>{secondaryText}</SecondaryText>}
-        {supportingText && (
-          <SupportingTextBox>{supportingText}</SupportingTextBox>
-        )}
-      </Container>
-    </Link>
+    <Container className={className}>
+      <TitleBar>
+        {thumbnailurl && <Thumbnail url={thumbnailurl} />}
+        <div>
+          {title && <Title>{title}{_id}</Title>}
+
+          {buttonText && <Button>{buttonText}</Button>}
+        </div>
+      </TitleBar>
+
+      {coverImage && <CoverImage src={coverImage} />}
+      {secondaryText && <SecondaryText>{secondaryText}</SecondaryText>}
+      {supportingText && (
+        <SupportingTextBox>{supportingText}</SupportingTextBox>
+      )}
+    </Container>
+
   );
 };
