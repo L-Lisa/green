@@ -72,6 +72,9 @@ const Plant = mongoose.model('Plant', {
   email: {
     type: String,
   },
+  _id: {
+    type: String,
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -172,10 +175,11 @@ app.post('/plants', parser.single('image'), async (req, res) => {
 app.get("/plants", async (req, res) => {
   const plants = await Plant.find()
   res.json(plants)
-})
 
-app.get("/user/:id/plants", async (req, res) => {
-  const plants = await Plant.find() // 
+})
+// get one plant
+app.get("/plants/:_id/", async (req, res) => {
+  const plants = await Plant.find()
   res.json(plants)
 })
 

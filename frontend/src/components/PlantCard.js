@@ -18,7 +18,7 @@ export const PlantCard = (props) => {
 } */
 
 import { Card } from "./Card";
-import styled from "styled-components";
+import styled from "styled-components/macro"
 import React, { useState, useRef, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { plant } from "reducers/plantReducer"
@@ -26,25 +26,28 @@ import moment from 'moment'
 
 
 const PlantCardInput = styled(Card)`
-  width: 350px;
-  height:450px;
+  width: 300px;
+`;
 
+const Link = styled.li`
+list-style: none;
+cursor: pointer;
+text-decoration:none;
+margin: 5px;
 `;
 
 export const PlantCard = (props) => {
-    const { imageUrl, id, title, description, email, owner } = props.plant
+    const { imageUrl, _id, id, title, description, email, owner } = props.plant
     console.log(email)
     return (
-        <>
-            < div >
-                <PlantCardInput
-                    coverImage={imageUrl}
-                    title={title}
-                    secondaryText={description}
-                    buttonText={`I want one ${email}`}
-                />
-                <PlantCardInput title="Another Title" secondaryText="Secondary again" />
-            </div >
-        </>
+
+        <Link to={`/plants/${_id}`} className="a-tag">
+            <PlantCardInput
+                coverImage={imageUrl}
+                title={title}
+                secondaryText={description}
+                buttonText={`I want one ${email}`}
+            />
+        </Link>
     );
 }

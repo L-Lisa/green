@@ -35,6 +35,10 @@ export const Home = () => {
                         <Profile />
                     </Route>
 
+                    <Route path="/plants/:_id" exact>
+                        <Profile />
+                    </Route>
+
                 </Switch>
             </main>
             <Footer />

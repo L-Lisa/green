@@ -1,11 +1,12 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
+import { Link } from 'react-router-dom'
 /* import PropTypes from 'prop-types'; */
 
 const Container = styled.div`
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   border-radius: 3px;
   background: white;
 `;
@@ -30,10 +31,13 @@ const TitleBar = styled.div`
   display: flex;
   align-items: center;
   margin: 10px;
+  display:flex;
+  flex-direction: row;
+  align-content: space-between;
 `;
 
 const CoverImage = styled.img`
-  width: 100%;
+  width: inherit;
 `;
 
 const Content = styled.div`
@@ -69,28 +73,29 @@ export const Card = ({
   buttonText,
   imageUrl,
   id,
+  _id,
   title,
   description,
   email,
   owner
 }) => {
   return (
-    <Container className={className}>
-      <TitleBar>
-        {thumbnailurl && <Thumbnail url={thumbnailurl} />}
-        <div>
-          {title && <Title>{title}</Title>}
-          {secondaryText && <SecondaryText>{secondaryText}</SecondaryText>}
-        </div>
-      </TitleBar>
+    <Link to={`/plants/${_id}`} className="a-tag">
+      <Container className={className}>
+        <TitleBar>
+          {thumbnailurl && <Thumbnail url={thumbnailurl} />}
+          <div>
+            {title && <Title>{title}</Title>}
+            {buttonText && <Button>{buttonText}</Button>}
+          </div>
+        </TitleBar>
 
-      {coverImage && <CoverImage src={coverImage} />}
-
-      {supportingText && (
-        <SupportingTextBox>{supportingText}</SupportingTextBox>
-      )}
-
-      {buttonText && <Button>{buttonText}</Button>}
-    </Container>
+        {coverImage && <CoverImage src={coverImage} />}
+        {secondaryText && <SecondaryText>{secondaryText}</SecondaryText>}
+        {supportingText && (
+          <SupportingTextBox>{supportingText}</SupportingTextBox>
+        )}
+      </Container>
+    </Link>
   );
 };
