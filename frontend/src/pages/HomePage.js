@@ -45,7 +45,6 @@ const Hero = styled.section`
     width: max-content;
     color: black;
     background-color: #fff;
-    background-color: rgba(67,111,81,0.12);
     border-radius: 5px;
     background-color: rgba(217, 247, 219, 0.2);
     }

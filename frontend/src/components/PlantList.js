@@ -23,7 +23,7 @@ justify-content: center;
 
 export const PlantList = () => {
     const allPlants = useSelector((store) => (store.plant.plants))
-    
+
     if (!allPlants) {
         return <>Paitence, still loading.. </>
     }

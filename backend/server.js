@@ -33,6 +33,7 @@ const storage = cloudinaryStorage({
 })
 const parser = multer({ storage })
 
+//Models
 const User = mongoose.model('User', {
   name: {
     type: String,
@@ -131,7 +132,7 @@ app.post('/users', async (req, res) => {
 // Secure endpoint, user needs to be logged in to access this.
 app.get('/users/:id/profile', authenticateUser);
 app.get('/users/:id/profile', (req, res) => {
-  const profileMessage = `Welcome to your home grown page ${req.user.name}`;
+  const profileMessage = `Welcome to your home grown page ${req.user.name}`;// put users books in here
   // Compile information that is access protected
   // And send it back to the client to use for that specific user
   //  const user = await User.findOne({ user._id});
@@ -168,34 +169,32 @@ app.post('/plants', parser.single('image'), async (req, res) => {
     res.status(400).json({ errors: err.errors })
   }
 })
+
+//get ONE plant
+app.get("/plants/:id", async (req, res) => {
+  try {
+    const plant = await Plant.findById(req.params.id)
+    if (plant) {
+      res.status(200).json(plant)
+    } else {
+      res.status(404).json({ error: `Cant find plant with id:${id} did you miss a nr?` })
+    }
+  } catch (err) {
+    res.status(400).json({ error: `try another plant` })
+  }
+})
 // get all the plants
 app.get("/plants", async (req, res) => {
   const plants = await Plant.find()/* .limit(20) */
   res.json(plants)
 })
 
-app.get("/user/:id/plants", async (req, res) => {
+/* app.get("/user/:id/plants", async (req, res) => {
   const plants = await Plant.find()
   res.json(plants)
-})
+}) */
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
-
-/* // get one plant
-app.get("/plants/:_id/", async (req, res) => {
-  try {
-    const { _id } = req.params
-    console.log(`GET /plants by _id ${_id}`)
-    const plants = await Plant.findOne({ _id })
-    if (plant) {
-      res.status(200).json(plant)
-    } else {
-      res.status(404).json({ error: `Cant find plant with id:${_id} did you miss a nr?` })
-    }
-  } catch (err) {
-    res.status(400).json({ error: `try aanother plant` })
-  }
-}) */

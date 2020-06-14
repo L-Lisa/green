@@ -35,7 +35,7 @@ export const Home = () => {
                         <Profile />
                     </Route>
 
-                    <Route path="/plants/:_id" exact>
+                    <Route path="/plants/:id" exact>
                         <Profile />
                     </Route>
 
