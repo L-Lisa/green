@@ -5,7 +5,7 @@ import { AddPlant } from "../components/AddPlant"
 import { PlantList } from "../components/PlantList"
 
 
-const URL = 'http://localhost:8080/users';
+const URL = 'https://home-grown-green.herokuapp.com/users';
 export const Profile = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.login.accessToken);

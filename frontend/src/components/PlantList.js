@@ -4,7 +4,7 @@ import { PlantCard } from "./PlantCard"
 import { plant } from "reducers/plantReducer"
 import styled from "styled-components/macro";
 
-const API_PLANTS = 'http://localhost:8080/plants'
+const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
 
 const ListSection = styled.div`
 width: 100%;

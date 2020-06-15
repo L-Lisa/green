@@ -13,7 +13,7 @@ export const HomePage = () => {
         <>
             <Hero>
                 <h1>Home grown plants - sell and buy them here!</h1>
-            </Hero >
+            </Hero>
             <section>
                 <ul>
                     {allPlants.map((plant) => (

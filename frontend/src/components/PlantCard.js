@@ -31,7 +31,7 @@ const PlantCardInput = styled(Card)`
   height: 400px
 `;
 
-const ListItem = styled.article`
+const ListItem = styled.li`
 list-style: none;
 cursor: pointer;
 text-decoration:none;
