@@ -5,7 +5,7 @@ import { plant } from "../reducers/plantReducer"
 import { Form, Button } from "../lib/Form"
 
 
-const API_PLANTS = 'http://localhost:8080/plants'
+const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
 
 export const AddPlant = () => {
     const fileInput = useRef()
@@ -20,7 +20,7 @@ export const AddPlant = () => {
      } */
     const handleFormSubmit = (e) => {
         //set state, loading true 
-        const API_PLANTS = 'http://localhost:8080/plants'
+        const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
         e.preventDefault()
         const formData = new FormData()
         formData.append('image', fileInput.current.files[0]) // send all to backend
