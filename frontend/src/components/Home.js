@@ -7,6 +7,7 @@ import { HomePage } from "../pages/HomePage"
 import { About } from "../pages/About"
 import { Plants } from "../pages/Plants"
 import { Footer } from "./Footer"
+import { SinglePlantPage } from "../pages/SinglePlantPage"
 
 export const Home = () => {
     return (
@@ -36,13 +37,12 @@ export const Home = () => {
                     </Route>
 
                     <Route path="/plants/:id" exact>
-                        <Profile />
+                        <SinglePlantPage />
                     </Route>
 
                 </Switch>
             </main>
             <Footer />
         </BrowserRouter>
-
     )
 }

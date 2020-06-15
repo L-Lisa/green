@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { PlantCard } from "./PlantCard"
-import { plant } from "reducers/plantReducer"
+import { plant, fetchPlants } from "reducers/plantReducer"
 import styled from "styled-components/macro";
 
 const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
@@ -22,7 +22,13 @@ justify-content: center;
 `
 
 export const PlantList = () => {
+    const dispatch = useDispatch()
     const allPlants = useSelector((store) => (store.plant.plants))
+
+    // store plants in reux
+    useEffect(() => {
+        dispatch(fetchPlants())
+    }, [dispatch])
 
     if (!allPlants) {
         return <>Paitence, still loading.. </>

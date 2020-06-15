@@ -25,8 +25,8 @@ export const LoginForm = () => {
 
     fetch(SIGNUP_URL, {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),/// att do formdata
-      headers: { 'Content-Type': 'application/json' },/// att do formdata
+      body: JSON.stringify({ name, email, password }),/// att to formdata
+      headers: { 'Content-Type': 'application/json' },/// att to formdata
     })
       .then((res) => {
         if (!res.ok) {
@@ -64,7 +64,7 @@ export const LoginForm = () => {
           <h1>Welcome, sign or register in here. </h1>
           <label>
             Name
-                <input
+              <input
               required
               value={name}
               onChange={(event) => setName(event.target.value)}
@@ -73,7 +73,7 @@ export const LoginForm = () => {
 
           <label>
             Email
-                <input
+              <input
               type="email"
               required
               value={email}
@@ -102,7 +102,7 @@ export const LoginForm = () => {
     );
   } else {
     // If user is logged in, show profile
-    return <Profile />;
+    return <Profile />
   }
 };
 export default LoginForm;
