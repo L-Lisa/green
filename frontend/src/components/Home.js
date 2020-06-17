@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
-import { Nav } from "./Nav"
+import { Navigate } from "./Nav"
 import { LoginForm } from "./LoginForm"
 import { Profile } from "../pages/Profile"
 import { HomePage } from "../pages/HomePage"
@@ -8,12 +8,14 @@ import { About } from "../pages/About"
 import { Plants } from "../pages/Plants"
 import { Footer } from "./Footer"
 import { SinglePlantPage } from "../pages/SinglePlantPage"
+import { PlantList } from "./PlantList"
+import { NavDropdownExample } from "./Nav"
 
 export const Home = () => {
     return (
         <BrowserRouter>
-
-            <Nav />
+            <NavDropdownExample />
+            {/*  <Navigate /> */}
             <main>
                 <Switch>
                     <Route path="/" exact>

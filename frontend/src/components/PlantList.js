@@ -37,7 +37,7 @@ export const PlantList = () => {
         <ListSection>
             <ul>
                 {allPlants.map((plant) => (
-                    <PlantCard key={plant.id} plant={plant} />
+                    <PlantCard key={plant._id} plant={plant} />
                 ))}
             </ul>
         </ListSection>

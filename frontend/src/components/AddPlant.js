@@ -74,9 +74,7 @@ export const AddPlant = () => {
                 <button type="submit">
                     Add your Plant
         </button>
-
             </Form>
-
         </>
     )
 }

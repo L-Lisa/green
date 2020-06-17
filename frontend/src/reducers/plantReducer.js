@@ -28,7 +28,6 @@ export const plant = createSlice({
 })
 
 // thunk 
-
 export const fetchPlants = () => {
     const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
     return (dispatch) => {

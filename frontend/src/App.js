@@ -1,5 +1,3 @@
-/* TEST */
-
 import React from "react";
 import LoginForm from "./components/LoginForm";
 import { Provider } from "react-redux";
@@ -44,6 +42,9 @@ export const App = () => {
     </Provider>
   );
 }
+<script
+  src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+  crossorigin></script>
 
 /* // 1. Retrieve the localstorage and use it as our initial state
 const persistedStateJSON = localStorage.getItem("green")

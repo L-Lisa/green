@@ -19,39 +19,80 @@ export const PlantCard = (props) => {
 
 import { Card } from "./Card";
 import styled from "styled-components/macro"
-import React, { useState, useRef, useEffect } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useState, useSelector, useEffect } from 'react'
 import { plant } from "reducers/plantReducer"
 import moment from 'moment'
 import { Link } from "react-router-dom"
 
 
-const PlantCardInput = styled(Card)`
-  width: 300px;
-  height: 400px
-`;
-
 const ListItem = styled.li`
-list-style: none;
 cursor: pointer;
-text-decoration:none;
 margin: 5px;
 text-decoration: none;
 `;
+const PlantCardInput = styled.div`
+width: 300px;
+height: 400px;
+border: solid 1px rgba(0, 0, 0, 0.2);
+box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+margin-bottom: 2px;
+border-radius: 3px;
+background: white;
+margin: 2px;
+background-color: #9ec2a285;
+h1{
+list-style: none; 
+-webkit-text-decoration: none;
+text-decoration: none;
+margin-bottom: 0;
+padding: 13px 0 2px 2px;
+height: 3rem;
+text-justify: center;
+font-size: 1.5rem;
+text-align: center;
+
+}
+h2{
+list-style: none;
+text-decoration: none;
+font-size: 1rem;
+text-align: center;
+}
+img{
+width: 100%;
+height: 300px;
+object-fit: cover;
+}
+`;
+
 
 export const PlantCard = (props) => {
-    const { imageUrl, _id, id, title, description, email, owner } = props.plant
+    const { imageUrl, _id, title, description, email, owner } = props.plant
+
     return (
-        <ListItem>
-            {/*  <Link to={`/plants/${_id}`}> */}
-            <PlantCardInput
-                _id={_id}
-                coverImage={imageUrl}
-                title={title}
-                secondaryText={description}
-                buttonText={`I want one ${email}`}
-            />
-            {/*  </Link> */}
-        </ListItem>
+        < ListItem >
+            <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={`/plants/${_id}`}>
+                <PlantCardInput url={plant.imageUrl} key={plant._id}>
+                    <img src={`${imageUrl}`} alt={title} />
+                    {title && <h1>{title}</h1>}
+                </PlantCardInput>
+            </Link>
+        </ListItem >
     );
 }
+/* export const PlantCard = (props) => {
+    const { imageUrl, id, title, description, email, owner } = props.plant
+    console.log(plant)
+    return (
+        <ListItem>
+            <Link to={`/plants/${id}`}>
+                <div>
+                    <h1> {title}</h1>
+                    <img src={plant.imageUrl} key={plant.id} />
+                    <h2>{description}</h2>
+                </div>
+            </Link>
+        </ListItem>
+    )
+} */

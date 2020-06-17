@@ -32,11 +32,11 @@ export const Profile = () => {
         onClick={(e) => dispatch(getProfileMessage())}
         value="Test Profile Endpoint"
       />
-      <input
+      {/* <input
         type="submit"
         onClick={(e) => dispatch(logout())}
         value="Test Logout"
-      />
+      /> */}
     </div>
   );
 };

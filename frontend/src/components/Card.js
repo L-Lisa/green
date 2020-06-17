@@ -1,7 +1,7 @@
-import React from "react";
+/* import React from "react";
 import styled from "styled-components/macro";
 
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
 border: solid 1px rgba(0, 0, 0, 0.2);
@@ -16,6 +16,7 @@ border: solid 1px rgba(0, 0, 0, 0.2);
 const Title = styled.h1`
   font-size: 1.1rem;
 `;
+
 const SecondaryText = styled.h2`
   font-size: 1rem;
 `;
@@ -38,8 +39,8 @@ const TitleBar = styled.div`
   align-content: space-between;
 `;
 
-const CoverImage = styled.img`
-  width: inherit;
+const CoverImage = styled.div`
+ background-image: url(${props => props.url});
 `;
 
 const Content = styled.div`
@@ -65,7 +66,6 @@ const Button = styled.button`
 `;
 
 export const Card = ({
-
   secondaryText,
   thumbnailurl,
   coverImage,
@@ -82,23 +82,20 @@ export const Card = ({
   owner
 }) => {
   return (
-
     <Container className={className}>
       <TitleBar>
         {thumbnailurl && <Thumbnail url={thumbnailurl} />}
         <div>
           {title && <Title>{title}{_id}</Title>}
-
           {buttonText && <Button>{buttonText}</Button>}
         </div>
       </TitleBar>
-
-      {coverImage && <CoverImage src={coverImage} />}
+      {coverImage && <CoverImage url={coverImage} />}
       {secondaryText && <SecondaryText>{secondaryText}</SecondaryText>}
       {supportingText && (
         <SupportingTextBox>{supportingText}</SupportingTextBox>
       )}
     </Container>
-
   );
 };
+*/

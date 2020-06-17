@@ -50,3 +50,9 @@ nav {
   background-color: #004c1f;
   color: white;
 }
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: powderblue;
+}

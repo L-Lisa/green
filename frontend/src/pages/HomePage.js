@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector } from 'react-redux'
-import img from '..//lib/images/saplings.jpg'
+import img from '..//lib/images/peaches.jpg'
 import { PlantCard } from "../components/PlantCard"
 import { plant } from "reducers/plantReducer"
 import styled from 'styled-components'
