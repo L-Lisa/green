@@ -8,18 +8,14 @@ import { PlantList } from "components/PlantList"
 
 
 export const HomePage = () => {
-    const allPlants = useSelector((store) => (store.plant.plants))
     return (
         <>
             <Hero>
                 <h1>Home grown plants - sell and buy them here!</h1>
             </Hero>
             <section>
-                <ul>
-                    {allPlants.map((plant) => (
-                        <PlantList key={plant.id} plant={plant} />
-                    ))}
-                </ul>
+
+                <PlantList />
             </section>
         </>
     )
@@ -33,7 +29,6 @@ const Hero = styled.section`
     color: whitesmoke;
     background-position:50% 50%;
     padding: 20px;
-    margin:-1rem -1rem 0 -1rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -14,8 +14,8 @@ import { NavDropdownExample } from "./Nav"
 export const Home = () => {
     return (
         <BrowserRouter>
-            <NavDropdownExample />
-            {/*  <Navigate /> */}
+            {/*  <NavDropdownExample /> */}
+            <Navigate />
             <main>
                 <Switch>
                     <Route path="/" exact>

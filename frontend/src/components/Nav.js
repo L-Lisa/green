@@ -8,11 +8,11 @@ import { user, logout, getProfileMessage } from '../reducers/user';
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
-/* export const Navigate = () => {
+export const Navigate = () => {
     const dispatch = useDispatch();
     const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
     return (
-        <>
+        <NavContainer>
             <Link to to="/"><LogoLink></LogoLink>
             </Link>
 
@@ -33,15 +33,15 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
                     <NavLink className="nav-link" to="/"><input
                         type="submit"
                         onClick={(e) => dispatch(logout())}
-                        value="Test Logout"
+                        value="Logout"
                     /></NavLink>
                 </li>
             </ul >
-        </>
+        </NavContainer>
     )
-} */
+}
 
-export const NavDropdownExample = () => {
+/* export const NavDropdownExample = () => {
     const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
     const dispatch = useDispatch();
 
@@ -57,6 +57,7 @@ export const NavDropdownExample = () => {
 
             <Nav variant="pills" activeKey="1" onSelect={handleSelect}>
                 <NavDropdown title="Menu" id="nav-dropdown">
+
                     <NavDropdown.Item> <NavLink className="nav-link" to="/">Home</NavLink></NavDropdown.Item>
                     <NavDropdown.Item ><NavLink className="nav-link" to="/About">About</NavLink></NavDropdown.Item>
                     <NavDropdown.Item > <NavLink className="nav-link" to="/sessions">LogIn/Register</NavLink></NavDropdown.Item>
@@ -65,14 +66,19 @@ export const NavDropdownExample = () => {
                         onClick={(e) => dispatch(logout())}
                         value="Test Logout"
                     /></NavLink> </NavDropdown.Item>
+
                 </NavDropdown>
             </Nav>
-
-
-
         </>
     );
-}
+} */
+export const NavContainer = styled.div`
+width: 100%;
+height: 60px;
+display: flex;
+justify-content: space-between;
+`;
+
 export const NavBar = styled.div`
 width: 100%;
 height: 60px;

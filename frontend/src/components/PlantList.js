@@ -33,8 +33,11 @@ export const PlantList = () => {
     if (!allPlants) {
         return <>Paitence, still loading.. </>
     }
+    console.log(allPlants.length)
     return (
+
         <ListSection>
+
             <ul>
                 {allPlants.map((plant) => (
                     <PlantCard key={plant._id} plant={plant} />

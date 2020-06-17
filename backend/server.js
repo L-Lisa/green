@@ -74,11 +74,9 @@ const Plant = mongoose.model('Plant', {
     type: String,
   },
   owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  }
+    type: mongoose.Schema.Types.ObjectId, ref: "User",
+  } //other example has no mongoose. just Schema...
 })
-/*   */
 
 
 
@@ -189,10 +187,10 @@ app.get("/plants", async (req, res) => {
   res.json(plants)
 })
 
-/* app.get("/user/:id/plants", async (req, res) => {
+app.get("/user/:id/plants", async (req, res) => {
   const plants = await Plant.find()
   res.json(plants)
-}) */
+})
 
 // Start the server
 app.listen(port, () => {
