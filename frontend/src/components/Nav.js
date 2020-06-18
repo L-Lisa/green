@@ -16,7 +16,7 @@ export const Navigate = () => {
             <Link to to="/"><LogoLink></LogoLink>
             </Link>
 
-            <ul>
+            <Ul>
                 <li className="list-items">
                     <NavLink className="nav-link" to="/">Home</NavLink>
                 </li>
@@ -36,48 +36,32 @@ export const Navigate = () => {
                         value="Logout"
                     /></NavLink>
                 </li>
-            </ul >
+            </Ul >
         </NavContainer>
     )
 }
 
-/* export const NavDropdownExample = () => {
-    const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
-    const dispatch = useDispatch();
 
-    return (
-        <>
-            <style type="text/css"> {`
-    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-      background-color: purple;
-      color: white;
-    }
-    `}
-            </style>
 
-            <Nav variant="pills" activeKey="1" onSelect={handleSelect}>
-                <NavDropdown title="Menu" id="nav-dropdown">
-
-                    <NavDropdown.Item> <NavLink className="nav-link" to="/">Home</NavLink></NavDropdown.Item>
-                    <NavDropdown.Item ><NavLink className="nav-link" to="/About">About</NavLink></NavDropdown.Item>
-                    <NavDropdown.Item > <NavLink className="nav-link" to="/sessions">LogIn/Register</NavLink></NavDropdown.Item>
-                    <NavDropdown.Item> <NavLink className="nav-link" to="/"><input
-                        type="submit"
-                        onClick={(e) => dispatch(logout())}
-                        value="Test Logout"
-                    /></NavLink> </NavDropdown.Item>
-
-                </NavDropdown>
-            </Nav>
-        </>
-    );
-} */
+export const Ul = styled.ul`
+list-style: none;
+display: inline-flex;
+padding: 3px;
+border-radius: 2px;
+margin: 5px;
+text-transform: uppercase;
+font-size: 1rem;
+letter-spacing: 1.5px;
+color: #fff;
+`
 export const NavContainer = styled.div`
 width: 100%;
 height: 60px;
 display: flex;
 justify-content: space-between;
-`;
+background-color: #9ec2a2;
+color:white;
+`
 
 export const NavBar = styled.div`
 width: 100%;
@@ -111,7 +95,7 @@ background-size: cover;
 `;
 
 
-/* .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+/*.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
 
     background-color: green;
 }
@@ -121,3 +105,37 @@ const Nav = styled(InlineStyledComponent)`
     color: blue !important;
   }
 ` */
+
+/*
+export const NavDropdownExample = () => {
+    const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
+    const dispatch = useDispatch();
+
+    return (
+        <>
+            <style type="text/css"> {`
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+      background-color: purple;
+      color: white;
+    }
+    `}
+            </style>
+
+            <Nav variant="pills" activeKey="1" onSelect={handleSelect}>
+                <NavDropdown title="Menu" id="nav-dropdown">
+                    <NavDropdown.Item> <NavLink className="nav-link" to="/">Home</NavLink></NavDropdown.Item>
+                    <NavDropdown.Item ><NavLink className="nav-link" to="/About">About</NavLink></NavDropdown.Item>
+                    <NavDropdown.Item > <NavLink className="nav-link" to="/sessions">LogIn/Register</NavLink></NavDropdown.Item>
+                    <NavDropdown.Item> <NavLink className="nav-link" to="/"><input
+                        type="submit"
+                        onClick={(e) => dispatch(logout())}
+                        value="Test Logout"
+                    /></NavLink> </NavDropdown.Item>
+                </NavDropdown>
+            </Nav>
+
+
+
+        </>
+    );
+} */
