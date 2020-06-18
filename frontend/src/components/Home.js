@@ -10,19 +10,21 @@ import { Plants } from "../pages/Plants"
 import { Footer } from "./Footer"
 import { SinglePlantPage } from "../pages/SinglePlantPage"
 import { PlantList } from "./PlantList"
+import styled from 'styled-components'
 
 
 export const Home = () => {
     return (
         <BrowserRouter>
-
-            <Navigate2 />
-            {/*     <Navigate /> */}
+            <NavSection>
+                <Navigate2 />
+                <Navigate />
+            </NavSection>
             <main>
                 <Switch>
                     <Route path="/" exact>
                         <HomePage />
-                    </Route>
+                    </Route>a
 
                     <Route path="/about" exact>
                         <About />
@@ -50,3 +52,8 @@ export const Home = () => {
         </BrowserRouter>
     )
 }
+
+export const NavSection = styled.section`
+
+
+`

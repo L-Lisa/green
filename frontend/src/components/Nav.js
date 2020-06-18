@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import img from '../lib/images/default.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { user, logout, getProfileMessage } from '../reducers/user';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
@@ -12,7 +14,7 @@ export const Navigate = () => {
     const dispatch = useDispatch();
     const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
     return (
-        <NavContainer>
+        <NavContainer ClassName="visuallyhidden">
             <Link to to="/"><LogoLink></LogoLink>
             </Link>
 
@@ -61,7 +63,14 @@ display: flex;
 justify-content: space-between;
 background-color: #9ec2a2;
 color:white;
-`
+@media (max-width: 670px) {
+position: absolute; 
+overflow: hidden; 
+clip: rect(0 0 0 0); 
+height: 1px; width: 1px; 
+margin: -1px; padding: 0; border: 0; 
+}
+`;
 
 export const NavBar = styled.div`
 width: 100%;

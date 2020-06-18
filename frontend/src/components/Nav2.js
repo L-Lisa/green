@@ -53,6 +53,12 @@ display: flex;
 justify-content: space-between;
 background-color: #9ec2a2;
 color:white;
+@media (min-width: 670px) {
+position: absolute; 
+overflow: hidden; 
+clip: rect(0 0 0 0); 
+height: 1px; width: 1px; 
+margin: -1px; padding: 0; border: 0; 
 `
 
 export const NavBar = styled.div`
