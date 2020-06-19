@@ -59,7 +59,8 @@ overflow: hidden;
 clip: rect(0 0 0 0); 
 height: 1px; width: 1px; 
 margin: -1px; padding: 0; border: 0; 
-`
+}
+`;
 
 export const NavBar = styled.div`
 width: 100%;
@@ -88,7 +89,7 @@ export const NavButton = styled.button`
     color: #004c1f;
   background-color: #9ec2a2;
   }
-`
+`;
 export const LogoLink = styled.div`
 width: 60px;
 height: 60px;

@@ -80,14 +80,14 @@ align-items: center;
 justify-content: space-between;
 `;
 export const NavButton = styled.button`
-  padding: 3px;
-  margin: 0 6px;
-  background: wheat;
-  color: green;
-  font-size: 1rem;
-  border: 1px solid black;
-  border-radius: 6px;
-  align-self: flex-end;
+padding: 3px;
+margin: 0 6px;
+background: wheat;
+color: green;
+font-size: 1rem;
+border: 1px solid black;
+border-radius: 6px;
+align-self: flex-end;
 
   &:hover {
     background: green;
@@ -103,48 +103,3 @@ background-repeat: no-repeat;
 background-size: cover;
 `;
 
-
-/*.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-
-    background-color: green;
-}
-const Nav = styled(InlineStyledComponent)`
-  &[style] {
-    font-size: 12px !important;
-    color: blue !important;
-  }
-` */
-
-/*
-export const NavDropdownExample = () => {
-    const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
-    const dispatch = useDispatch();
-
-    return (
-        <>
-            <style type="text/css"> {`
-    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-      background-color: purple;
-      color: white;
-    }
-    `}
-            </style>
-
-            <Nav variant="pills" activeKey="1" onSelect={handleSelect}>
-                <NavDropdown title="Menu" id="nav-dropdown">
-                    <NavDropdown.Item> <NavLink className="nav-link" to="/">Home</NavLink></NavDropdown.Item>
-                    <NavDropdown.Item ><NavLink className="nav-link" to="/About">About</NavLink></NavDropdown.Item>
-                    <NavDropdown.Item > <NavLink className="nav-link" to="/sessions">LogIn/Register</NavLink></NavDropdown.Item>
-                    <NavDropdown.Item> <NavLink className="nav-link" to="/"><input
-                        type="submit"
-                        onClick={(e) => dispatch(logout())}
-                        value="Test Logout"
-                    /></NavLink> </NavDropdown.Item>
-                </NavDropdown>
-            </Nav>
-
-
-
-        </>
-    );
-} */

@@ -10,15 +10,14 @@ import { MDBIcon, MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
 export const Footer = () => {
     return (
-        <MDBFooter color="grey darken-1" className="font-small pt-4 mt-4">
+        <MDBFooter color="grey darken-1" className="font-small pt-0 mt-0">
             <MDBContainer fluid className="text-center text-md-left">
                 <MDBRow >
                     <MDBCol md="6">
-
                     </MDBCol>
                     <NavContainer md="6">
                         <div>
-                            <h5 className="title">Let's stay in touch!</h5>
+                            <h5 className="title pt-5">Let's stay in touch!</h5>
                             <div className="mb-5 inline-flex-center ">
                                 <ul class="d-inline-flex p-2">
                                     <li className="list-unstyled">
@@ -38,8 +37,8 @@ export const Footer = () => {
                     </NavContainer>
                 </MDBRow>
             </MDBContainer>
-            <div className="footer-copyright text-center py-3">
-                <MDBContainer fluid>
+            <div className="footer-copyright text-center py-3 ">
+                <MDBContainer fluid >
                     &copy; {new Date().getFullYear()} Copyright: Lisa.AB
                 </MDBContainer>
             </div>
