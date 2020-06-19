@@ -29,7 +29,7 @@ export const Navigate = () => {
                     <NavLink className="nav-link" to="/sessions">LogIn/Register</NavLink>
                 </li>
                 <li className="list-items">
-                    <NavLink className="nav-link" to="/Plants">Plants for sale</NavLink>
+                    <NavLink className="nav-link" to="/Plants">Buy Plants</NavLink>
                 </li>
                 <li className="list-items">
                     <NavLink className="nav-link" to="/"><input
@@ -58,12 +58,12 @@ color: #fff;
 `
 export const NavContainer = styled.div`
 width: 100%;
-height: 60px;
+height: 75px;
 display: flex;
 justify-content: space-between;
 background-color: #9ec2a2;
 color:white;
-@media (max-width: 670px) {
+@media (max-width: 550px) {
 position: absolute; 
 overflow: hidden; 
 clip: rect(0 0 0 0); 
@@ -74,7 +74,7 @@ margin: -1px; padding: 0; border: 0;
 
 export const NavBar = styled.div`
 width: 100%;
-height: 60px;
+height: 75px;
 display: flex;
 align-items: center;
 justify-content: space-between;

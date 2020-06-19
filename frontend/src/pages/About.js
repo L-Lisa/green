@@ -5,15 +5,12 @@ import img from '../lib/images/canva.jpg'
 export const About = () => {
     return (
         <AboutContainer>
-
+            <img src={img} alt="about info" class="mx-auto mw-100" />
         </AboutContainer>
     )
 }
 
 
 export const AboutContainer = styled.div`
-background-image: url(${img});
-height: 150vh;
-background-size: cover;
-}
-`
+height: auto;
+` ;

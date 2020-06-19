@@ -25,13 +25,15 @@ export const Navigate2 = () => {
       </style>
 
       <Nav variant="pills" onSelect={handleSelect}>
-        <NavDropdown title="Menu" id="nav-dropdown">
+        <NavDropdown className="p-2" title="Menu" id="nav-dropdown">
 
           <NavDropdown.Item className="list-items"> <NavLink className="nav-link " to="/">Home</NavLink></NavDropdown.Item>
 
           <NavDropdown.Item className="list-items"><NavLink className="nav-link" to="/About">About</NavLink></NavDropdown.Item>
 
           <NavDropdown.Item className="list-items"> <NavLink className="nav-link" to="/sessions">LogIn/Register</NavLink></NavDropdown.Item>
+
+          <NavDropdown.Item className="list-items"> <NavLink className="nav-link" to="/Plants">Buy Plants</NavLink></NavDropdown.Item>
 
           <NavDropdown.Item className="list-items"> <NavLink className="nav-link list-items" to="/"><input
             className=" bg-transparent border-0 list-items color-white"
@@ -53,7 +55,7 @@ display: flex;
 justify-content: space-between;
 background-color: #9ec2a2;
 color:white;
-@media (min-width: 670px) {
+@media (min-width: 550px) {
 position: absolute; 
 overflow: hidden; 
 clip: rect(0 0 0 0); 
@@ -89,7 +91,7 @@ export const NavButton = styled.button`
     color: #004c1f;
   background-color: #9ec2a2;
   }
-`;
+`
 export const LogoLink = styled.div`
 width: 60px;
 height: 60px;
