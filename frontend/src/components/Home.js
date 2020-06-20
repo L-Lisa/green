@@ -16,10 +16,10 @@ import styled from 'styled-components'
 export const Home = () => {
     return (
         <BrowserRouter>
-            <NavSection>
-                <Navigate2 />
-                <Navigate />
-            </NavSection>
+
+            <Navigate2 />
+            <Navigate />
+
             <main>
                 <Switch>
                     <Route path="/" exact>
@@ -53,7 +53,3 @@ export const Home = () => {
     )
 }
 
-export const NavSection = styled.section`
-
-
-`

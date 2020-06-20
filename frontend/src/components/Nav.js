@@ -17,7 +17,6 @@ export const Navigate = () => {
         <NavContainer ClassName="visuallyhidden">
             <Link to to="/"><LogoLink></LogoLink>
             </Link>
-
             <Ul>
                 <li className="list-items">
                     <NavLink className="nav-link" to="/">Home</NavLink>
@@ -56,21 +55,7 @@ font-size: 1rem;
 letter-spacing: 1.5px;
 color: #fff;
 `
-export const NavContainer = styled.div`
-width: 100%;
-height: 75px;
-display: flex;
-justify-content: space-between;
-background-color: #9ec2a2;
-color:white;
-@media (max-width: 550px) {
-position: absolute; 
-overflow: hidden; 
-clip: rect(0 0 0 0); 
-height: 1px; width: 1px; 
-margin: -1px; padding: 0; border: 0; 
-}
-`;
+
 
 export const NavBar = styled.div`
 width: 100%;
@@ -103,3 +88,14 @@ background-repeat: no-repeat;
 background-size: cover;
 `;
 
+export const NavContainer = styled.div`
+width: 100%;
+height: 75px;
+display: flex;
+justify-content: space-between;
+background-color: #9ec2a2;
+color:white;
+@media (max-width: 600px) {
+display:none;
+}
+`;

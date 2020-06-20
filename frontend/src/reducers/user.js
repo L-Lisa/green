@@ -25,7 +25,7 @@ export const user = createSlice({
     },
     setProfileMessage: (state, action) => {
       const { profileMessage } = action.payload;
-      console.log(`Profile Message: ${profileMessage}`);
+      /* console.log(`Profile Message: ${profileMessage}`); */
       state.login.profileMessage = profileMessage;
     },
     setErrorMessage: (state, action) => {

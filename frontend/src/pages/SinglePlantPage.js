@@ -32,7 +32,7 @@ export const SinglePlantPage = () => {
             <div>
                 <h1> {details?.title}</h1>
                 <h2>{details?.description}</h2>
-                <a href={`mailto:${details?.email}`}><i class="fas fa-envelope fa-2x"></i></a>
+                <a href={`mailto:${details?.email}`}>Contact & buy: <i className="fas fa-envelope fa-2x"></i></a>
             </div>
         </DetailsContainer>
     )
@@ -45,7 +45,7 @@ width: fit-content;
 height: 400px;
 border: solid 1px rgba(0, 0, 0, 0.2);
 box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 margin: 20px;
 border-radius: 3px;
 background: white;
@@ -53,9 +53,6 @@ background-color: #9ec2a285;
 @media (max-width: 550px) {
 flex-direction:column;
 height: fit-content;
-img{
-    margin:0;
-}
 }
 img{
     width: auto;
@@ -63,19 +60,23 @@ img{
     margin: 5px 0;
     object-fit: contain;
 }
-h1 {
-    text-transform: uppercase;
-  font-size: 1.2rem;
-  letter-spacing: 1.5px;
-  color: black; 
+h1{
+text-transform: uppercase;
+font-size: 1.2rem;
+letter-spacing: 1.5px;
+color: black; 
 }
-h2 {
+h2{
     font-size: 1.2rem;
 }
 div{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 20px;
+    padding: 20px;
+    width: 200px;
+}
+a{
+    color: black;
 }
 `

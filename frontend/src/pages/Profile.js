@@ -15,10 +15,10 @@ export const Profile = () => {
 
   return (
     <div>
-      <h1>Profile</h1>
+      <h1>Welcome {user.name}</h1>
       Here goes your uploaded images
       {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
-      {profileMessage && <h4>Profile Message : {`${profileMessage}`}</h4>}
+      {profileMessage && <h4> {`${profileMessage}`}</h4>}
       <h4>userId :</h4>
       <p> {`${userId}`}</p>
       <h4>accessToken :</h4>
@@ -40,4 +40,4 @@ export const Profile = () => {
     </div>
   );
 };
-export default Profile;
+
