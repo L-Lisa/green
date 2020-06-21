@@ -58,9 +58,8 @@ export const LoginForm = () => {
     // If user is logged out, show login form
     return (
       <div>
-        {/*  <Profile /> */}
-        <Form>
 
+        <Form>
           <h1>Welcome, sign in or register here. </h1>
           <label>
             Name

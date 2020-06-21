@@ -128,9 +128,9 @@ app.post('/users', async (req, res) => {
 })
 
 // Secure endpoint, user needs to be logged in to access this.
-app.get('/users/:id/profile', authenticateUser);
-app.get('/users/:id/profile', (req, res) => {
-  const profileMessage = `Welcome to your home grown page ${req.user.name}`;// put users books in here
+app.get('/users/:id', authenticateUser);
+app.get('/users/:id', (req, res) => {
+  const profileMessage = `Welcome to your home grown page ${req.user.name}`;// put users plants in here
   // Compile information that is access protected
   // And send it back to the client to use for that specific user
   //  const user = await User.findOne({ user._id});

@@ -75,7 +75,7 @@ export const getProfileMessage = () => {
     const accessToken = getState().user.login.accessToken;
     const userId = getState().user.login.userId;
     // Include userId in the path
-    fetch(`${USERS_URL}/${userId}/profile`, {
+    fetch(`${USERS_URL}/${userId}`, {
       method: 'GET',
       // Include the accessToken to get the protected endpoint
       headers: { Authorization: accessToken },

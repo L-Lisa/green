@@ -43,6 +43,7 @@ export const AddPlant = () => {
     return (
         <>
             <Form onSubmit={handleFormSubmit}>
+                <h1>Add a plant here. </h1>
                 <label>
                     Title:
             <input

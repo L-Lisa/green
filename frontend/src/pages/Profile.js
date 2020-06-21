@@ -15,28 +15,28 @@ export const Profile = () => {
 
   return (
     <div>
-      <h1>Welcome {user.name}</h1>
-      Here goes your uploaded images
+      <h1>Welcome</h1>
+      <input
+        type="submit"
+        onClick={(e) => dispatch(getProfileMessage())}
+        value="secretendpoint/getname tester"
+      />
       {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
       {profileMessage && <h4> {`${profileMessage}`}</h4>}
-      <h4>userId :</h4>
+      {/*  <h4>userId :</h4>
       <p> {`${userId}`}</p>
       <h4>accessToken :</h4>
-      <p> {`${accessToken}`}</p>
+      <p> {`${accessToken}`}</p> */}
       <AddPlant />
       <PlantList />
 
 
-      <input
-        type="submit"
-        onClick={(e) => dispatch(getProfileMessage())}
-        value="Test Profile Endpoint"
-      />
       {/* <input
         type="submit"
         onClick={(e) => dispatch(logout())}
         value="Test Logout"
       /> */}
+
     </div>
   );
 };
