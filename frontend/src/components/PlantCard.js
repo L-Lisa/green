@@ -34,8 +34,7 @@ const PlantCardInput = styled.div`
 width: 300px;
 height: 400px;
 border: solid 1px rgba(0, 0, 0, 0.2);
-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+box-shadow: 0px 10px 30px -15px rgba(0, 0, 0, 0.3);
 margin-bottom: 2px;
 border-radius: 3px;
 background: white;

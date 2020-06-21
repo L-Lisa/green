@@ -88,13 +88,13 @@ export const LoginForm = () => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </label><br />
-          <Button type="submit" onClick={handleLogin}>
+          <span type="submit" onClick={handleLogin}>
             Login
-          </Button>
-          OR
-          <Button type="submit" onClick={handleSignup}>
+          </span>
+
+          <span type="submit" onClick={handleSignup}>
             Register a new user
-          </Button>
+          </span>
 
         </Form>
       </div>

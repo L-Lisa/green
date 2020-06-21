@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { user, logout, getProfileMessage } from '../reducers/user';
 import { plant } from "../reducers/plantReducer"
 import { Form, Button } from "../lib/Form"
-
+import styled from 'styled-components'
 
 const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
 
@@ -41,7 +41,7 @@ export const AddPlant = () => {
             })
     }
     return (
-        <>
+        <div>
             <Form onSubmit={handleFormSubmit}>
                 <h1>Add a plant here. </h1>
                 <label>
@@ -69,14 +69,14 @@ export const AddPlant = () => {
                     />
                 </label>
                 <label>
-                    Image of your Green
+                    Image
         <input type="file" ref={fileInput} />
                 </label>
                 <button type="submit">
                     Add your Plant
         </button>
             </Form>
-        </>
+        </div>
     )
 }
 

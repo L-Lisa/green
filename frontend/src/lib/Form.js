@@ -1,22 +1,24 @@
-import styled from 'styled-components'
-
-import img from './images/darkleaves.jpg';
+import styled from 'styled-components/macro'
+import img from './images/darkleaves.jpg'
 
 export const Form = styled.form`
 margin-top: 80px;
-width: 400px;
+width: 320px;
 height: auto;
 border: 1px solid #004c1f;
 border-radius: 4px;
 margin: 0 auto;
 display: flex;
-padding: 1rem;
+margin-top: 15px;
+/* padding: 1rem; */
 flex-direction: column;
 align-content: flex-start;
 justify-content: flex-start;
 text-align: center;
 align-items: center;
 line-height: 2rem;   
+box-shadow: 0px 10px 30px -15px rgba(0, 0, 0, 0.3);
+margin-bottom: 15px;
    h1{
     background-image: url(${img});
     font-family: Merriweather;
@@ -24,27 +26,45 @@ line-height: 2rem;
     color: whitesmoke;
     background-position:50% 50%;
     padding: 20px;
-    margin:-1rem -1rem 0 -1rem;
+    width: 100%;
+    /* margin:-1rem -1rem 0 -1rem; */
    }
    label{
      margin-top: 10px;
-     align-self: flex-start;
+     padding:10px;
+     width: 300px;
+     display: flex;
+     justify-content: space-between;
+   }
+   button{
+     margin: 15px;
+     border-radius: 4px;
    }
    input{
-    height: 1.5rem;
-    width: 200px;
-    margin: 0 50px;
-   }
-      &:focus{
+     width: 180px;
+    &:focus{
      border: yellow;
    }
-`
+   }
+   span{
+     border: 1px solid black;
+     border-radius: 2px;
+     padding: 4px;
+     align-self: flex-end;
+     margin:5px;
+     &:hover {
+    background: #9ec2a2;
+    color: white;
+  }
+   }
+`;
 
 export const Button = styled.button`
 width: 150px;
 background-color: #9ec2a2;
 border-radius: 2px;
 color: white;
+margin: 5px;
 &:hover {
     background: wheat;
     color: #9ec2a2;

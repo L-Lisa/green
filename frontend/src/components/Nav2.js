@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom"
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import img from '../lib/images/default.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { user, logout, getProfileMessage } from '../reducers/user';
@@ -49,6 +49,8 @@ export const Navigate2 = () => {
 }
 
 export const NavContainer2 = styled.div`
+margin:0;
+padding:0;
 width: 100%;
 height: 60px;
 display: flex;
