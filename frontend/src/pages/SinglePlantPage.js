@@ -29,8 +29,10 @@ export const SinglePlantPage = () => {
     return (
 
         <DetailsContainer>
+
             <h1>Bring me home!</h1>
             <img src={details?.imageUrl} key={details?._id} />
+
             <div>
                 <h2> {details?.title}</h2>
                 <h3>{details?.description}</h3>
@@ -54,17 +56,19 @@ border-radius: 3px;
 background: white;
 margin: 0 auto;
 margin-top: 40px;
-margin-bottom: 40px;
+margin-bottom: 30px;
 background-color: #9ec2a285;
-@media (min-width: 550px) {
+@media (min-width: 650px) {
 flex-direction:row;
 height: fit-content;
+width: max-content;
 }
 img{
 width: auto;
 height: unset;
 margin: 5px 0;
 object-fit: contain;
+width: 318px;
 }
 h1{
 text-transform: uppercase;
@@ -73,16 +77,39 @@ letter-spacing: 1.5px;
 color: black; 
 text-align: center;
 padding-top: 2px;
+@media (min-width: 650px) {
+align-self: center;
+padding: 10px;
+width: 150px
+}
 }
 h2{
-    font-size: 1.2rem;
+text-transform: uppercase;
+font-size: 1rem;
+letter-spacing: 1.5px;
+color: black; 
+text-align: center;
+padding-top: 2px;
+}
+h3{
+    font-size: 1rem;
 }
 div{
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 20px;
-    width: 200px;
+    @media (min-width: 650px) {
+width: 200px
+}
+@media (min-width: 750px) {
+width: 300px
+}
+@media (min-width: 850px) {
+width: 400px
+}
+   
 }
 a{
     color: black;

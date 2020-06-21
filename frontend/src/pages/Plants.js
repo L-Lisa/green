@@ -19,11 +19,15 @@ export const Plants = () => {
 }
 
 const Container = styled.main`
-padding: 10px;
+padding: 20px;
 h1{
     text-align: center;
 }
 h2{
     font-size:1rem;
+    @media (min-width: 650px) {
+width: 40%;
+margin: 0 auto;
+}
 }
 `
