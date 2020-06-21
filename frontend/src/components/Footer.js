@@ -19,17 +19,17 @@ export const Footer = () => {
                         <div>
                             <h5 className="title pt-5">Let's stay in touch!</h5>
                             <div className="mb-5 inline-flex-center ">
-                                <ul class="d-inline-flex p-2">
+                                <ul className="d-inline-flex p-2">
                                     <li className="list-unstyled">
-                                        <a href="https://www.linkedin.com/in/lisa-ojeland/"><i class="fab fa-linkedin  fa-2x"></i></a>
+                                        <a href="https://www.linkedin.com/in/lisa-ojeland/"><i className="fab fa-linkedin  fa-2x"></i></a>
                                     </li>
                                     <li className="list-unstyled">
-                                        <a href="https://github.com/L-Lisa"><i class="fab fa-github-square fa-2x"></i></a>
+                                        <a href="https://github.com/L-Lisa"><i className="fab fa-github-square fa-2x"></i></a>
                                     </li>
 
 
                                     <li className="list-unstyled">
-                                        <a href="mailto:lisaojeland@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
+                                        <a href="mailto:lisaojeland@gmail.com"><i className="fas fa-envelope fa-2x"></i></a>
                                     </li>
                                 </ul>
                             </div>

@@ -61,7 +61,7 @@ export const LoginForm = () => {
         {/*  <Profile /> */}
         <Form>
 
-          <h1>Welcome, sign or register in here. </h1>
+          <h1>Welcome, sign in or register here. </h1>
           <label>
             Name
               <input
