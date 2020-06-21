@@ -24,8 +24,9 @@ export const SinglePlantPage = () => {
         fetch(singleUrl)
             .then(res => res.json())
             .then(json => setDetails(json))
+
     }, [singleUrl, id])
-    console.log(details)
+
     return (
 
         <DetailsContainer>
@@ -35,6 +36,7 @@ export const SinglePlantPage = () => {
 
             <div>
                 <h2> {details?.title}</h2>
+                <h3>{name?.name}</h3>
                 <h3>{details?.description}</h3>
                 <a href={`mailto:${details?.email}`}>Contact & buy: <i className="fas fa-envelope fa-2x"></i></a>
             </div>
@@ -108,9 +110,7 @@ width: 300px
 }
 @media (min-width: 850px) {
 width: 400px
-}
-   
-}
+}}
 a{
     color: black;
 }

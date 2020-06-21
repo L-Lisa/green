@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { Loading, loader } from "reducers/Loading"
 
 export const plant = createSlice({
     name: 'plant',
@@ -8,14 +9,14 @@ export const plant = createSlice({
     },
     reducers: {
         addPlant: (state, action) => {
-            const { title, description, imageUrl, email, owner } = action.payload
+            const { name, title, description, imageUrl, email } = action.payload
             state.plants.push({
                 id: Date.now(),
                 title,
                 description,
                 email,
                 imageUrl,
-                owner
+                name
             })
         },
         setPlants: (state, action) => {
@@ -31,7 +32,7 @@ export const plant = createSlice({
 export const fetchPlants = () => {
     const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
     return (dispatch) => {
-        //set loader
+        dispatch(loader.actions.setLoading(true))
         fetch(API_PLANTS)
             .then((res) => {
                 if (res.ok /* if 200, 201, 204 */) {
@@ -43,11 +44,9 @@ export const fetchPlants = () => {
             .then((json) => {
                 // Save the plants to redux
                 dispatch(
-                    plant.actions.setPlants({
-                        plants: json,
-                    })
+                    plant.actions.setPlants({ plants: json, })
                 );
-                // loader false
+                dispatch(loader.actions.setLoading(false))
             })
             .catch((err) => {
                 console.log(err)

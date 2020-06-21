@@ -67,14 +67,14 @@ object-fit: cover;
 
 
 export const PlantCard = (props) => {
-    const { imageUrl, _id, title, description, email, owner } = props.plant
+    const { imageUrl, _id, title, description, email, name } = props.plant
 
     return (
         < ListItem >
             <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={`/plants/${_id}`}>
                 <PlantCardInput url={plant.imageUrl} key={plant._id}>
                     <img src={`${imageUrl}`} alt={title} />
-                    {title && <h1>{title}</h1>}
+                    {title && <h1>{title} {/* {name} */}</h1>}
                 </PlantCardInput>
             </Link>
         </ListItem >

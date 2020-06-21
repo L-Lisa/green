@@ -12,6 +12,7 @@ export const AddPlant = () => {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [email, setEmail] = useState("")
+    const [name, setName] = useState("")
     const dispatch = useDispatch()
 
     /*  const handleSubmit = (event) => {
@@ -27,17 +28,19 @@ export const AddPlant = () => {
         formData.append('title', title)
         formData.append('description', description)
         formData.append('email', email)
+        formData.append('name', name)
 
         fetch(API_PLANTS, { method: 'POST', body: formData })
             .then((res) => res.json())
             .then((json) => {
                 console.log(json)
-                dispatch(plant.actions.addPlant({ email, title, description, imageUrl: json.imageUrl, /* owner: user.login.userId  */ }))
+                dispatch(plant.actions.addPlant({ name, email, title, description, imageUrl: json.imageUrl, /* owner: user.login.userId  */ }))
             })
             .then(() => {
                 setTitle("")
                 setDescription("")
                 setEmail("")
+                setName("")
             })
     }
     return (
@@ -58,6 +61,14 @@ export const AddPlant = () => {
                         type="text-area"
                         value={description}
                         onChange={(event) => setDescription(event.target.value)}
+                    />
+                </label>
+                <label>
+                    Your Name:
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
                     />
                 </label>
                 <label>

@@ -58,9 +58,13 @@ const Plant = mongoose.model('Plant', {
     type: String,
     required: true
   },
+  name: {
+    type: String,
+  },
   description: {
     type: String,
-    required: true
+    required: true,
+    maxlength: 140
   },
   imageUrl: {
     type: String,
@@ -72,6 +76,10 @@ const Plant = mongoose.model('Plant', {
   },
   email: {
     type: String,
+  },
+  createdAt: {
+    type: Date,
+    default: () => new Date()
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId, ref: "User",
@@ -159,10 +167,12 @@ app.post('/plants', parser.single('image'), async (req, res) => {
       title: req.body.title,
       description: req.body.description,
       email: req.body.email,
+      owner: req.body.owner,
       imageUrl: req.file.path,
       imageId: req.file.filename
     }).save()
     res.json(plant)
+    console.log(plant)
   } catch (err) {
     res.status(400).json({ errors: err.errors })
   }
@@ -183,8 +193,16 @@ app.get("/plants/:id", async (req, res) => {
 })
 // get all the plants
 app.get("/plants", async (req, res) => {
-  const plants = await Plant.find()/* .limit(20) */
-  res.json(plants)
+  try {
+    const plants = await Plant.find().sort({ createdAt: "desc" }).limit(20)
+    if (plants) {
+      res.status(200).json(plants)
+    } else {
+      res.status(404).json({ error: `Cant find plants` })
+    }
+  } catch (err) {
+    res.status(400).json({ error: `Call for help` })
+  }
 })
 
 app.get("/user/:id/plants", async (req, res) => {
