@@ -25,7 +25,6 @@ export const user = createSlice({
     },
     setProfileMessage: (state, action) => {
       const { profileMessage } = action.payload;
-      console.log(action.payload)
       console.log(`Profile Message: ${profileMessage}`);
       state.login.profileMessage = profileMessage;
     },
@@ -89,9 +88,8 @@ export const getProfileMessage = () => {
       })
       // SUCCESS: Do something with the information we got back
       .then((json) => {
-        console.log(`json`, json)
         dispatch(
-          user.actions.setProfileMessage(json)
+          user.actions.setProfileMessage({ profileMessage: JSON.stringify(json) })
         );
       })
       .catch((err) => {

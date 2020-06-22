@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Profile } from '../pages/Profile'
 import { useDispatch, useSelector } from 'react-redux'
-import { user, login, getProfileMessage } from '../reducers/user'
+import { user, login } from '../reducers/user'
 import styled from 'styled-components'
 import { Form, Button } from "../lib/Form"
 import { Link, NavLink } from "react-router-dom"
@@ -52,7 +52,6 @@ export const LoginForm = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     dispatch(login(name, email, password));
-    dispatch(getProfileMessage())
   };
 
   if (!accessToken) {

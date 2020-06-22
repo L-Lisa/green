@@ -36,6 +36,7 @@ export const Navigate = () => {
                         onClick={(e) => dispatch(logout())}
                         value="Logout"
                     /></NavLink>
+
                 </li>
             </Ul >
         </NavContainer>
