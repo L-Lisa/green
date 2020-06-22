@@ -8,13 +8,15 @@ import { compose, applyMiddleware } from "redux";
 import { user } from "./reducers/user";
 import { Home } from "components/Home";
 import { plant } from "reducers/plantReducer";
+import { Loading, loader } from "reducers/Loading"
 
 const URL = "https://home-grown-green.herokuapp.com/";
 
 // Old store code
 const reducer = combineReducers({
   user: user.reducer,
-  plant: plant.reducer
+  plant: plant.reducer,
+  loader: loader.reducer,
 })
 
 // 1. Retrieve the localstorage and use it as our initial state

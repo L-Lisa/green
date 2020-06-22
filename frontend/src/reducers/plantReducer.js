@@ -10,7 +10,7 @@ export const plant = createSlice({
     reducers: {
         addPlant: (state, action) => {
             const { name, title, description, imageUrl, email } = action.payload
-            state.plants.push({
+            state.plants.unshift({
                 id: Date.now(),
                 title,
                 description,

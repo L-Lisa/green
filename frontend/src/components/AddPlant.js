@@ -64,12 +64,12 @@ export const AddPlant = () => {
                     />
                 </label>
                 <label>
-                    Your Name:
+                    Your Name
                     <input
                         type="text"
                         value={name}
                         onChange={(event) => setName(event.target.value)}
-                    />
+                    /> {/* get workign or remove!! */}
                 </label>
                 <label>
                     Email

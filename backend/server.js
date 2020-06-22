@@ -101,7 +101,6 @@ const authenticateUser = async (req, res, next) => {
     const user = await User.findOne({
       accessToken: req.header('Authorization'),
     });
-
     if (user) {
       req.user = user;
       next();
@@ -138,11 +137,14 @@ app.post('/users', async (req, res) => {
 // Secure endpoint, user needs to be logged in to access this.
 app.get('/users/:id', authenticateUser);
 app.get('/users/:id', (req, res) => {
-  const profileMessage = `${req.user.name}`;// put users plants in here
+  const profileMessage = `${req.user.name}`;
+  console.log(profileMessage)
+  //{req.user.plant}?
+  // put users plants in here
   // Compile information that is access protected
   // And send it back to the client to use for that specific user
   //  const user = await User.findOne({ user._id});
-  res.status(201).json({ profileMessage });
+  res.status(201).json({ name: req.user.name });
 })
 
 // login user
@@ -191,7 +193,7 @@ app.get("/plants/:id", async (req, res) => {
     res.status(400).json({ error: `try another plant` })
   }
 })
-// get all the plants
+// get all the plants ????
 app.get("/plants", async (req, res) => {
   try {
     const plants = await Plant.find().sort({ createdAt: "desc" }).limit(20)
