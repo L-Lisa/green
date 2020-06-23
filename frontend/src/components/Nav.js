@@ -81,12 +81,13 @@ align-self: flex-end;
   }
 `
 export const LogoLink = styled.div`
-width: 60px;
+width: 90px;
 height: 60px;
 background-image: url(${img});
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
+margin-left: 15px;
 `;
 
 export const NavContainer = styled.div`

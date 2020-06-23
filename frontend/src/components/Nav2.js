@@ -91,7 +91,7 @@ export const NavButton = styled.button`
   }
 `
 export const LogoLink = styled.div`
-width: 60px;
+width: 90px;
 height: 60px;
 background-image: url(${img});
 background-position: center;
