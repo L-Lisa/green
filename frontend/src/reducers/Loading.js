@@ -15,7 +15,6 @@ export const loader = createSlice({
         }
     }
 })
-
 //Loader item
 export const Loading = () => {
     return (
@@ -24,7 +23,7 @@ export const Loading = () => {
             color="#00BFFF"
             height={50}
             width={100}
-            timeout={3000} //3 secs
+            timeout={3000}
         />
     )
 }

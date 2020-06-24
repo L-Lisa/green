@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react'
-import { useDispatch } from 'react-redux';
-import { user, logout, getProfileMessage } from '../reducers/user';
+import { useDispatch } from 'react-redux'
+import { user } from '../reducers/user'
 import { plant } from "../reducers/plantReducer"
 import { Form, Button } from "../lib/Form"
-import styled from 'styled-components'
+
 
 const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
 
@@ -15,16 +15,11 @@ export const AddPlant = () => {
     const [name, setName] = useState("")
     const dispatch = useDispatch()
 
-    /*  const handleSubmit = (event) => {
-         event.preventDefault()
- 
-     } */
     const handleFormSubmit = (e) => {
-        //set state, loading true 
         const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
         e.preventDefault()
         const formData = new FormData()
-        formData.append('image', fileInput.current.files[0]) // send all to backend
+        formData.append('image', fileInput.current.files[0])
         formData.append('title', title)
         formData.append('description', description)
         formData.append('email', email)
@@ -34,7 +29,7 @@ export const AddPlant = () => {
             .then((res) => res.json())
             .then((json) => {
                 console.log(json)
-                dispatch(plant.actions.addPlant({ name, email, title, description, imageUrl: json.imageUrl, /* owner: user.login.userId  */ }))
+                dispatch(plant.actions.addPlant({ name, email, title, description, imageUrl: json.imageUrl }))
             })
             .then(() => {
                 setTitle("")
@@ -49,7 +44,7 @@ export const AddPlant = () => {
                 <h1>Add a plant here. </h1>
                 <label>
                     Title:
-            <input
+                <input
                         type="text"
                         value={title}
                         onChange={(event) => setTitle(event.target.value)}
@@ -57,7 +52,7 @@ export const AddPlant = () => {
                 </label>
                 <label>
                     Description
-            <input
+                <input
                         type="text-area"
                         value={description}
                         onChange={(event) => setDescription(event.target.value)}
@@ -69,11 +64,11 @@ export const AddPlant = () => {
                         type="text"
                         value={name}
                         onChange={(event) => setName(event.target.value)}
-                    /> {/* get workign or remove!! */}
+                    />
                 </label>
                 <label>
                     Email
-            <input
+                    <input
                         type="email"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
@@ -81,11 +76,11 @@ export const AddPlant = () => {
                 </label>
                 <label>
                     Image
-        <input type="file" ref={fileInput} />
+                    <input type="file" ref={fileInput} />
                 </label>
                 <button type="submit">
                     Add your Plant
-        </button>
+                </button>
             </Form>
         </div>
     )

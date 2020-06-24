@@ -6,21 +6,6 @@ import { plant } from "reducers/plantReducer"
 import styled from 'styled-components'
 import { PlantList } from "components/PlantList"
 
-
-export const HomePage = () => {
-    return (
-        <>
-            <Hero>
-                <h1>Home grown plants - sell and buy them here!</h1>
-            </Hero>
-            <section>
-
-                <PlantList />
-            </section>
-        </>
-    )
-}
-
 const Hero = styled.section`
     background-image: url(${img});
     width: 100%;
@@ -43,4 +28,18 @@ const Hero = styled.section`
     border-radius: 5px;
     background-color: rgba(217, 247, 219, 0.2);
     }
-   `
+   `;
+
+export const HomePage = () => {
+    return (
+        <>
+            <Hero>
+                <h1>Home grown plants - sell and buy them here!</h1>
+            </Hero>
+            <section>
+                <PlantList />
+            </section>
+        </>
+    )
+}
+

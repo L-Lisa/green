@@ -27,7 +27,6 @@ export const plant = createSlice({
         },
     },
 })
-
 // thunk 
 export const fetchPlants = () => {
     const API_PLANTS = 'https://home-grown-green.herokuapp.com/plants'
@@ -35,14 +34,12 @@ export const fetchPlants = () => {
         dispatch(loader.actions.setLoading(true))
         fetch(API_PLANTS)
             .then((res) => {
-                if (res.ok /* if 200, 201, 204 */) {
+                if (res.ok) {
                     return res.json();
                 }
-                // Not OK
                 throw 'Could not get plants';
             })
             .then((json) => {
-                // Save the plants to redux
                 dispatch(
                     plant.actions.setPlants({ plants: json, })
                 );
@@ -50,6 +47,6 @@ export const fetchPlants = () => {
             })
             .catch((err) => {
                 console.log(err)
-            });
-    };
-};
+            })
+    }
+}

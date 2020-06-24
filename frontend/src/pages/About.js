@@ -2,6 +2,9 @@ import React from "react"
 import styled from 'styled-components'
 import img from '../lib/images/canva.jpg'
 
+export const AboutContainer = styled.div`
+height: auto;
+`;
 export const About = () => {
     return (
         <AboutContainer>
@@ -9,8 +12,3 @@ export const About = () => {
         </AboutContainer>
     )
 }
-
-
-export const AboutContainer = styled.div`
-height: auto;
-` ;

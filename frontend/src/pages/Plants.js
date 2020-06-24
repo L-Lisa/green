@@ -5,19 +5,6 @@ import { plant } from "reducers/plantReducer"
 import { PlantList } from "components/PlantList"
 import styled from 'styled-components/macro'
 
-export const Plants = () => {
-
-    return (
-        <>
-            <Container>
-                <h1> Plants for sale</h1>
-                <h2>Find your favoutite and send an email to the person with green fingers to make a deal and give the plant a new home.</h2>
-            </Container>
-            <PlantList />
-        </>
-    )
-}
-
 const Container = styled.main`
 padding: 20px;
 h1{
@@ -28,6 +15,17 @@ h2{
     @media (min-width: 650px) {
 width: 40%;
 margin: 0 auto;
+}}
+`;
+
+export const Plants = () => {
+    return (
+        <>
+            <Container>
+                <h1> Plants for sale</h1>
+                <h2>Find your favoutite and send an email to the person with green fingers to make a deal and give the plant a new home.</h2>
+            </Container>
+            <PlantList />
+        </>
+    )
 }
-}
-`

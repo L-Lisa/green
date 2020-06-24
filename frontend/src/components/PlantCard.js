@@ -1,29 +1,8 @@
-/* import React, { useState, useRef, useEffect } from 'react'
-import { useDispatch } from 'react-redux';
-import { plant } from "reducers/plantReducer"
-import moment from 'moment'
-
-
-export const PlantCard = (props) => {
-    const { imageUrl, id, title, description, email, owner } = props.plant
-
-    return (
-        <>
-            <h1> {id}, {title}, {description} {email}</h1>
-            <h2>THIS IS THE PLANT CARD</h2>
-            <img className="details-img"
-                src={imageUrl} alt={title} />
-        </>
-    )
-} */
-
-import { Card } from "./Card";
 import styled from "styled-components/macro"
 import React, { useState, useSelector, useEffect } from 'react'
 import { plant } from "reducers/plantReducer"
 import moment from 'moment'
 import { Link } from "react-router-dom"
-
 
 const ListItem = styled.li`
 cursor: pointer;
@@ -50,7 +29,6 @@ height: 3rem;
 text-justify: center;
 font-size: 1.5rem;
 text-align: center;
-
 }
 h2{
 list-style: none;
@@ -64,8 +42,6 @@ height: 300px;
 object-fit: cover;
 }
 `;
-
-
 export const PlantCard = (props) => {
     const { imageUrl, _id, title, description, email, name } = props.plant
 
@@ -74,24 +50,9 @@ export const PlantCard = (props) => {
             <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={`/plants/${_id}`}>
                 <PlantCardInput url={plant.imageUrl} key={plant._id}>
                     <img src={`${imageUrl}`} alt={title} />
-                    {title && <h1>{title} {/* {name} */}</h1>}
+                    {title && <h1>{title}</h1>}
                 </PlantCardInput>
             </Link>
         </ListItem >
     );
 }
-/* export const PlantCard = (props) => {
-    const { imageUrl, id, title, description, email, owner } = props.plant
-    console.log(plant)
-    return (
-        <ListItem>
-            <Link to={`/plants/${id}`}>
-                <div>
-                    <h1> {title}</h1>
-                    <img src={plant.imageUrl} key={plant.id} />
-                    <h2>{description}</h2>
-                </div>
-            </Link>
-        </ListItem>
-    )
-} */

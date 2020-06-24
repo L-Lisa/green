@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
 import { Profile } from '../pages/Profile'
-import { Descision } from '../pages/Descision'
 import { useDispatch, useSelector } from 'react-redux'
 import { user, login } from '../reducers/user'
 import styled from 'styled-components'
 import { Form, Button } from "../lib/Form"
 import { Link, NavLink } from "react-router-dom"
-
-
 const SIGNUP_URL = 'https://home-grown-green.herokuapp.com/users'
 const LOGIN_URL = 'https://home-grown-green.herokuapp.com/sessions'
 
@@ -18,16 +15,14 @@ export const LoginForm = () => {
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState("")
 
-  // To sign up a user.
+  // To sign up new user
   const handleSignup = (event) => {
-    /*     const [name, setName] = useState("");
-        const [password, setPassword] = useState(""); */
     event.preventDefault();
 
     fetch(SIGNUP_URL, {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),/// att to formdata
-      headers: { 'Content-Type': 'application/json' },/// att to formdata
+      body: JSON.stringify({ name, email, password }),
+      headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => {
         if (!res.ok) {
@@ -48,18 +43,14 @@ export const LoginForm = () => {
         dispatch(user.actions.setErrorMessage({ errorMessage: err }))
       });
   };
-
   // To sign in a user.
   const handleLogin = (event) => {
     event.preventDefault();
     dispatch(login(name, email, password));
   };
-
   if (!accessToken) {
-    // If user is logged out, show login form
     return (
       <div>
-
         <Form>
           <h1>Welcome, sign in or register here. </h1>
           <label>
@@ -70,7 +61,6 @@ export const LoginForm = () => {
               onChange={(event) => setName(event.target.value)}
             />
           </label><br />
-
           <label>
             Email
               <input
@@ -92,18 +82,13 @@ export const LoginForm = () => {
           <span type="submit" onClick={handleLogin}>
             Login
           </span>
-
           <span type="submit" onClick={handleSignup}>
             Register a new user
           </span>
-
         </Form>
       </div>
-    );
+    )
   } else {
-
     return <Profile />
-
   }
-};
-export default LoginForm;
+}
