@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Profile } from '../pages/Profile'
+import { Descision } from '../pages/Descision'
 import { useDispatch, useSelector } from 'react-redux'
 import { user, login } from '../reducers/user'
 import styled from 'styled-components'
@@ -100,8 +101,9 @@ export const LoginForm = () => {
       </div>
     );
   } else {
-    // If user is logged in, show profile
+
     return <Profile />
+
   }
 };
 export default LoginForm;

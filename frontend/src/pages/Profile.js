@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddPlant } from "../components/AddPlant"
 import { PlantList } from "../components/PlantList"
 import styled from "styled-components/macro"
+import img from '../lib/images/gardener.jpg'
+import { Link, NavLink } from "react-router-dom"
+import { Form, Button } from "../lib/Form"
 
 const URL = 'https://home-grown-green.herokuapp.com/users';
 export const Profile = () => {
@@ -15,37 +18,79 @@ export const Profile = () => {
 
   return (
     <ProfileContainer>
-      <div>
-        <h1>Welcome</h1>
-        <input
-          type="submit"
-          onClick={(e) => dispatch(getProfileMessage())}
-          value="secretendpoint/getname tester"
-        />
-        {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
-        {profileMessage && <h4> Welcome to your Home Grown page {`${profileMessage}`}</h4>}
-        {/*  <h4>userId :</h4>
-      <p> {`${userId}`}</p>
-      <h4>accessToken :</h4>
-      <p> {`${accessToken}`}</p> */}
-      </div>
-      <AddPlant />
-      <PlantList />
-
-
-      {/* <input
-        type="submit"
-        onClick={(e) => dispatch(logout())}
-        value="Test Logout"
-      /> */}
-
+      <DescisionContainer>
+        <div>
+          <h1>Welcome back, are you buying or selling plants today?</h1>
+          <Link to="/plants"><Button>Go shopping for plants</Button></Link>
+          <Button input
+            type="submit"
+            onClick={(e) => dispatch(getProfileMessage())}
+            value="Go to profile"
+          >Go to profile</Button>
+        </div>
+      </DescisionContainer>
+      {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
+      {profileMessage && <><h2> Welcome to your Home Grown page {`${profileMessage}`} Please add more plants to our page!
+        </h2>
+        <AddPlant />
+        <PlantList />
+      </>}
     </ProfileContainer>
-  );
-};
+  )
+}
+
+
+
 
 export const ProfileContainer = styled.section`
-div{
-
-
+h2{
+text-transform: uppercase;
+font-size: 1rem;
+letter-spacing: 1.5px;
+width: 80%;
+text-align: center; 
+margin: 0 auto;
+margin-top: 30px;
 }
 `
+
+export const DescisionContainer = styled.section`
+background-image: url(${img});
+    width: 100%;
+    height: 100vh;
+    font-family: Merriweather;
+    color: whitesmoke;
+    background-position:50% 50%;
+    padding: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+    width: max-content;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    width: 80%;
+    font-size: 1.5rem;
+    font-weight: 400;
+    }
+    div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    }
+   `
+
+export const LogoLink = styled.div`
+width: 90px;
+height: 60px;
+background-image: url(${img});
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+`; 

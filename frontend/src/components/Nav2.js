@@ -35,11 +35,13 @@ export const Navigate2 = () => {
 
           <NavDropdown.Item className="list-items"> <NavLink className="nav-link" to="/Plants">Buy Plants</NavLink></NavDropdown.Item>
 
+          <NavDropdown.Item className="list-items"> <NavLink className="nav-link" to="/Profile">Your Page</NavLink></NavDropdown.Item>
+
           <NavDropdown.Item className="list-items"> <NavLink className="nav-link list-items" to="/"><input
             className=" bg-transparent border-0 list-items color-white"
             type="submit"
             onClick={(e) => dispatch(logout())}
-            value="Test Logout"
+            value="Logout"
           /></NavLink> </NavDropdown.Item>
 
         </NavDropdown>
@@ -85,9 +87,13 @@ export const NavButton = styled.button`
     background: #9ec2a2;
     color: wheat;
   }
-  dropdown-item{
-    color: #004c1f;
+  nav-link{
+    color: black;
   background-color: #9ec2a2;
+  &:hover {
+    background: #9ec2a2;
+    color: wheat;
+
   }
 `
 export const LogoLink = styled.div`

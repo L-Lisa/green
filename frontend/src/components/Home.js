@@ -7,6 +7,7 @@ import { Profile } from "../pages/Profile"
 import { HomePage } from "../pages/HomePage"
 import { About } from "../pages/About"
 import { Plants } from "../pages/Plants"
+import { Descision } from "../pages/Descision"
 import { Footer } from "./Footer"
 import { SinglePlantPage } from "../pages/SinglePlantPage"
 import { PlantList } from "./PlantList"
@@ -40,6 +41,10 @@ export const Home = () => {
 
                     <Route path="/profile" exact>
                         <Profile />
+                    </Route>
+
+                    <Route path="/descision" exact>
+                        <Descision />
                     </Route>
 
                     <Route path="/plants/:id" exact>
