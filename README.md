@@ -1,12 +1,9 @@
-# Project Auth
+# Project Green Fingers
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This was the final Technigo project, it combines the MERN stack that we learnt over the course (MongoDB, Express, React, Node). I also took the freedom to play around with Bootstrap, use Canva or a layout and styled-components for the main styling.
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This was fun, we had a lot of freedome and I enjoyed finally putting a whole front and backend project together. I will be tinkering with this for some time to come.
 
 ## View it live
  Here: https://project-green-fingers.netlify.app/
