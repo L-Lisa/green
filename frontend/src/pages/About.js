@@ -4,11 +4,17 @@ import img from '../lib/images/canva.jpg'
 
 export const AboutContainer = styled.div`
 height: auto;
+margin: 0 auto;
+display: flex;
+justify-content:center;
+img{
+    width:600px;
+}
 `;
 export const About = () => {
     return (
         <AboutContainer>
-            <img src={img} alt="about info" className="mx-auto mw-100" />
+            <img src={img} alt="about info" />
         </AboutContainer>
     )
 }
