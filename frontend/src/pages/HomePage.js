@@ -23,10 +23,11 @@ const Hero = styled.section`
     justify-content: center;
     h1{
     width: max-content;
-    color: black;
+    color: #303030;
+    font-weight:900;
     background-color: #fff;
     border-radius: 5px;
-    background-color: rgba(217, 247, 219, 0.2);
+    background-color: rgba(217, 247, 219, 0.3);
     }
    `;
 
@@ -34,7 +35,7 @@ export const HomePage = () => {
     return (
         <>
             <Hero>
-                <h1>Home grown plants - sell and buy them here!</h1>
+                <h1>Home grown plants & produce - this is your local marketplace!</h1>
             </Hero>
             <section>
                 <PlantList />

@@ -7,6 +7,7 @@ height: auto;
 margin: 0 auto;
 display: flex;
 justify-content:center;
+padding:20px;
 img{
     width:600px;
 }
