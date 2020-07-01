@@ -63,23 +63,28 @@ export const Profile = () => {
 
   return (
     <ProfileContainer>
-      <DescisionContainer>
-        <div>
-          <h1>Welcome back, are you buying or selling plants today?</h1>
-          <Link to="/plants"><Button>Go shopping for plants</Button></Link>
-          <Button input
-            type="submit"
-            onClick={(e) => dispatch(getProfileMessage())}
-            value="Go to profile"
-          >Go to profile</Button>
-        </div>
-      </DescisionContainer>
-      {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
-      {profileMessage && <><h2> Welcome to your Home Grown page {`${profileMessage}`} Please add more plants to our page!
+      {!profileMessage ? (
+        <DescisionContainer>
+          <div>
+            <h1>Welcome back, are you buying or selling plants today?</h1>
+            <Link to="/plants"><Button>Go shopping for plants</Button></Link>
+            <Button input
+              type="submit"
+              onClick={(e) => dispatch(getProfileMessage())}
+              value="Go to profile"
+            >Go to profile</Button>
+          </div>
+        </DescisionContainer>
+      ) : (
+          <>
+            {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
+            {profileMessage && <><h2> Dear {`${profileMessage}`}, welcome back to your page. Please add more plants to the market!
         </h2>
-        <AddPlant />
-        <PlantList />
-      </>}
+              <AddPlant />
+              <PlantList />
+            </>}
+          </>
+        )}
     </ProfileContainer>
   )
 }
