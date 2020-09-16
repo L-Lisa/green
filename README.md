@@ -8,4 +8,4 @@ This was fun, we had a lot of freedome and I enjoyed finally putting a whole fro
 
 ## View it live
 
-Here: https://project-green-fingers.netlify.app/
+Here: https://project-green-fingers.netlify.app/ 
